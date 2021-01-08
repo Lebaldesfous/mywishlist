@@ -16,7 +16,11 @@ $app = new \Slim\App($container);
 
 $app->get('/'          , MonControleur::class.':accueil'       )->setName('racine'    );
 $app->get('/listes'    , MonControleur::class.':afficherListes')->setName('aff_listes');
-$app->get('/liste/{id}', ControleurListe::class.':getListe' )->setName('aff_liste' );
+
+$app->get("/liste/creer",ControleurListe::class.":formCreer")->setName("formListe");
+$app->post("/liste/creer",ControleurListe::class.":creer")->setName("creer_liste");
+
+$app->get('/liste/{uuid}', ControleurListe::class.':getListe' )->setName('aff_liste' );
 $app->get('/item/{id}' , MonControleur::class.':afficherItem'  )->setName('aff_item'  );
 
 $app->get('/nouvelleliste',MonControleur::class.':formListe')->setName('formListe');

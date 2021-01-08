@@ -35,6 +35,17 @@ class VueListe
             case(1):
                 $content=$this->afficherListe();
                 break;
+            case(2):
+                $url_new_liste= $this->container->router->pathFor("creer_liste");
+                $content =<<<FIN
+<form method="POST" action="$url_new_liste">
+	<label>Titre:<br> <input type="text" name="titre"/></label><br>
+	<label>Description: <br><input type="text" name="description"/></label><br>
+	<button type="submit">Enregistrer la liste</button>
+</form>	
+FIN;
+                $this->titre="Creer Liste";
+                break;
             default:
                 $content='';
 
