@@ -1,0 +1,7 @@
+driver=mysql
+host=localhost
+database=auberge
+username=mysql
+password=mysql
+charset=utf8
+collation=utf8_unicode_ci

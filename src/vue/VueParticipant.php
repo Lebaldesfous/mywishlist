@@ -120,7 +120,6 @@ FIN;
         }
         $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
         $url_listes     = $this->container->router->pathFor( 'aff_listes'             ) ;
-        $url_liste_1    = $this->container->router->pathFor( 'aff_liste', ['no' => 1] ) ;
         $url_item_2     = $this->container->router->pathFor( 'aff_item' , ['id' => 2] ) ;
         $url_form_liste = $this->container->router->pathFor( 'formListe'              ) ;
         $url_form_item = $this->container->router->pathFor( 'formItem'              ) ;
@@ -138,7 +137,6 @@ FIN;
 			<ul>
 				<li><a href="$url_accueil">Accueil</a></li>
 				<li><a href="$url_listes">Listes</a></li>
-				<li><a href="$url_liste_1">Liste 1</a></li>
 				<li><a href="$url_item_2">Item 2</a></li>
 				<li><a href="$url_form_liste">Nouvelle Liste</a></li>
 				<li><a href="$url_form_item">Nouvel Item</a></li>
