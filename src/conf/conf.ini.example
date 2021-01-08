@@ -1,0 +1,7 @@
+driver=postgres
+host=localhost
+database=auberge
+username=postgres
+password=postgres
+charset=utf8
+collation=utf8_unicode_ci
