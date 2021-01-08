@@ -3,15 +3,18 @@
 
 namespace mywishlist\vue;
 
+use mywishlist\vue\VueMenu;
 
 class VueListe
 {
     private $tab; // tab array PHP
     private $container;
+    private $titre="";
 
     public function __construct($tab,$container) {
         $this->tab = $tab;
         $this->container=$container;
+
     }
 
     private function afficherListe() {
@@ -22,6 +25,7 @@ class VueListe
             $html .= "<li>{$item['nom']}, {$item['descr']}</li>";
         }
         $html = "<ul>$html</ul>";
+        $this->titre = "Afficher Liste";
         return $html;
     }
 
@@ -35,20 +39,7 @@ class VueListe
                 $content='';
 
         }
-        $url_accueil    = $this->container->router->pathFor( 'racine'                 ) ;
 
-        $html = <<<FIN
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Exemple</title>
-  </head>
-  <body>
-		<h1><a href="$url_accueil">Wish List</a></h1>
-    $content
-  </body>
-</html>
-FIN;;
-        return $html;
+        return VueMenu::get($this->container,$content,$this->titre);
     }
 }
