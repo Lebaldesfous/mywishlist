@@ -27,6 +27,7 @@ class VueParticipant {
         $html = "<h2>Item {$i['id']}</h2>";
         $html .= "<b>Nom:</b> {$i['nom']}<br>";
         $html .= "<b>Descr:</b> {$i['descr']}<br>";
+        $html .= "<b>Image:</b>{$i['url_image']}<br>";
         return $html;
     }
     private function formListe(){
@@ -72,7 +73,8 @@ FIN;
 	<label>Nom:<br> <input type="text" name="nom"/></label><br>
 	<label>Description: <br><input type="text" name="description"/></label><br>
 	<label>Id Liste: <br><input type="text" name="id_liste"/></label><br>
-	<button type="submit">Enregistrer la liste</button>
+	<label>Url image:<br><input type="text" name="url_image"/></label><br>
+	<button type="submit">Enregistrer l'item</button>
 </form>	
 FIN;
         return $html;
@@ -147,7 +149,7 @@ FIN;
     $content
   </body>
 </html>
-FIN;;
-		return $html;
+FIN;;	return $html;
 	}
+
 }
