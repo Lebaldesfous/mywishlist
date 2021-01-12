@@ -16,7 +16,7 @@ class ControleurItem {
     }
 
     public function ajouterImage(Request $rq, Response $rs, $args){
-    
+
     }
 
 }
