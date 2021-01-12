@@ -29,6 +29,20 @@ class VueListe
         return $html;
     }
 
+    private function creerListe(){
+        $url_new_liste= $this->container->router->pathFor("creer_liste");
+        $html=<<<FIN
+<form method="POST" action="$url_new_liste">
+	<label>Titre:<br> <input type="text" name="titre"/></label><br>
+	<label>Description: <br><input type="text" name="description"/></label><br>
+	<Label>Date d'expiration:<br><input type="date" name="dateexp"/> </Label><br>
+	<button type="submit">Enregistrer la liste</button>
+</form>	
+FIN;
+        $this->titre="Creer Liste";
+        return $html;
+    }
+
     public function render( $select ) {
 
         switch ($select) {
@@ -36,15 +50,8 @@ class VueListe
                 $content=$this->afficherListe();
                 break;
             case(2):
-                $url_new_liste= $this->container->router->pathFor("creer_liste");
-                $content =<<<FIN
-<form method="POST" action="$url_new_liste">
-	<label>Titre:<br> <input type="text" name="titre"/></label><br>
-	<label>Description: <br><input type="text" name="description"/></label><br>
-	<button type="submit">Enregistrer la liste</button>
-</form>	
-FIN;
-                $this->titre="Creer Liste";
+
+                $content =$this->creerListe();
                 break;
             default:
                 $content='';

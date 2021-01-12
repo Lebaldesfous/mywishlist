@@ -37,9 +37,17 @@ class ControleurListe
     }
 
     public function creer(Request $rq, Response $rs, $args){
-
-        $url_racine = $this->container->router->pathFor( 'racine' ) ;
-        return $rs->withRedirect($url_racine);
+        $post = $rq->getParsedBody() ;
+        $titre       = filter_var($post['titre']       , FILTER_SANITIZE_STRING) ;
+        $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
+        $date = filter_var (preg_replace("([^0-9/] | [^0-9-])","",$post["dateexp"]));
+        $l = new Liste();
+        $l->titre = $titre;
+        $l->description = $description;
+        $l->expiration=$date;
+        $l->save();
+        $url_listes = $this->container->router->pathFor( 'aff_listes' ) ;
+        return $rs->withRedirect($url_listes);
     }
 
 
