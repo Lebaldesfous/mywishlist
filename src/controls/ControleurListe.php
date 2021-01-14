@@ -7,6 +7,7 @@ namespace mywishlist\controls;
 use mywishlist\models\Item;
 use mywishlist\models\Liste;
 use mywishlist\vue\VueListe;
+use mywishlist\vue\VueMenu;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -16,6 +17,11 @@ class ControleurListe
     public function __construct($container)
     {
         $this->container=$container;
+    }
+
+    public function acceuil(Request $rq, Response $rs, $args){
+        $rs->getBody()->write(VueMenu::get($this->container,'',"acceuil"));
+        return $rs;
     }
 
     public function getListe(Request $rq, Response $rs, $args) {

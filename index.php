@@ -15,7 +15,7 @@ $db->bootEloquent();
 $container = new \Slim\Container($config);
 $app = new \Slim\App($container);
 
-$app->get('/'          , MonControleur::class.':accueil'       )->setName('racine'    );
+$app->get('/'          , ControleurListe::class.':accueil'       )->setName('racine'    );
 $app->get('/listes'    , MonControleur::class.':afficherListes')->setName('aff_listes');
 
 $app->get("/liste/creer",ControleurListe::class.":formCreer")->setName("formListe");
