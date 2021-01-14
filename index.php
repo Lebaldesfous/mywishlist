@@ -3,6 +3,7 @@ require 'vendor/autoload.php';
 
 use \mywishlist\controls\MonControleur;
 use \mywishlist\controls\ControleurListe;
+use \mywishlist\controls\ControleurItem;
 
 $config = ['settings' => [
 		'displayErrorDetails' => true
@@ -27,10 +28,10 @@ $app->post("/liste/modifier/{token}",ControleurListe::class.':modifierListe')->s
 
 $app->get('/liste/{uuid}', ControleurListe::class.':getListe' )->setName('aff_liste' );
 
-$app->get("/liste/{uuid}/creer",ControleurListe::class.":formCreerItem")->setName("formItem");
-$app->post("/liste/{uuid}/creer",ControleurListe::class.":creerItem")->setName("creerItem");
+$app->get("/liste/{uuid}/creer",ControleurItem::class.":formCreerItem")->setName("formItem");
+$app->post("/liste/{uuid}/creer",ControleurItem::class.":creerItem")->setName("creerItem");
 
-$app->get('/liste/{uuid}/item/{id_item}' , ControleurListe::class.':afficherItem'  )->setName('aff_item'  );
+$app->get('/liste/{uuid}/item/{id_item}' , ControleurItem::class.':afficherItem'  )->setName('aff_item'  );
 
 
 $app->get('/nouvelitem',MonControleur::class.':formItem')->setName('formItem');
