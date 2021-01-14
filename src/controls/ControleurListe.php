@@ -62,19 +62,26 @@ class ControleurListe
     public function modifierListe(Request $rq, Response $rs, $args){
         $token = $args['token'];
         $liste = Liste::all()->where("token","=",$token);
-        $post = $rq->getParsedBody() ;
-        $titre       = filter_var($post['titre']       , FILTER_SANITIZE_STRING) ;
-        $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
-        $date = filter_var (preg_replace("([^0-9/] | [^0-9-])","",$post["dateexp"]));
-        $liste->titre=$titre;
-        $liste->description =$description;
-        $today = date('d-m-Y');
-        if($today <= $date){
-            $liste->expiration = $date;
-            $liste->save();
+        if(is_null($liste)){
+            $rs->getBody()->write("Le token ne correspond à aucune liste");
+            $url_acceuil = $this->container->router->pathFor('racine');
+            return $rs->withRedirect($url_acceuil);
+        }else{
+            $post = $rq->getParsedBody() ;
+            $titre       = filter_var($post['titre']       , FILTER_SANITIZE_STRING) ;
+            $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
+            $date = filter_var (preg_replace("([^0-9/] | [^0-9-])","",$post["dateexp"]));
+            $liste->titre=$titre;
+            $liste->description =$description;
+            $today = date('d-m-Y');
+            if($today <= $date){
+                $liste->expiration = $date;
+                $liste->save();
+            }
+            $url_listes = $this->container->router->pathFor( 'aff_liste',["uuid"=>$liste->no] ) ;
+            return $rs->withRedirect($url_listes);
         }
-        $url_listes = $this->container->router->pathFor( 'aff_listes' ) ;
-        return $rs->withRedirect($url_listes);
+
     }
 
 

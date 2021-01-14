@@ -30,7 +30,7 @@ class VueListe
     }
 
     private function creerListe(){
-        $url_new_liste= $this->container->router->pathFor("creer_liste");
+        $url_new_liste= $this->container->router->pathFor("creerListe");
         $html=<<<FIN
 <form method="POST" action="$url_new_liste">
 	<label>Titre:<br> <input type="text" name="titre"/></label><br>
