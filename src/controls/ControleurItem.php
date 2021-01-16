@@ -34,13 +34,13 @@ class ControleurItem {
         $liste = Liste::all()->where("no","=",$idliste)->first();
         if(is_null($liste)){
             $rs->getBody()->write("L'id_liste ne correspond à aucune liste");
-            $url_acceuil = $this->container->router->pathFor('racine');
+            $url_acceuil = $this->app->router->pathFor('racine');
             return $rs->withRedirect($url_acceuil);
         }else{
             $nom       = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
             $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
             $prix = filter_var($post['prix'],FILTER_SANITIZE_NUMBER_FLOAT);
-            $url_page=filter_var($post['description'] , FILTER_SANITIZE_URL);
+            $url_page=filter_var($post['url_page'] , FILTER_SANITIZE_URL);
             $item = new Item();
             $item->liste_id=$idliste;
             $item->nom=$nom;
@@ -48,7 +48,7 @@ class ControleurItem {
             $item->url=$url_page;
             $item->tarif=$prix;
             $item->save();
-            $url_listes = $this->container->router->pathFor( 'acceuil' ) ;
+            $url_listes = $this->app->router->pathFor( 'racine' ) ;
             return $rs->withRedirect($url_listes);
         }
 
@@ -67,20 +67,20 @@ class ControleurItem {
         $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
         if(is_null($item)){
             $rs->getBody()->write("l'item n'existe pas ");
-            $url_acceuil = $this->container->router->pathFor('racine');
+            $url_acceuil = $this->app->router->pathFor('racine');
             return $rs->withRedirect($url_acceuil);
         }else{
             $nom       = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
             $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
             $prix = filter_var($post['prix'],FILTER_SANITIZE_NUMBER_FLOAT);
-            $url_page=filter_var($post['description'] , FILTER_SANITIZE_URL);
+            $url_page=filter_var($post['url_page'] , FILTER_SANITIZE_URL);
             $item->liste_id=$idliste;
             $item->nom=$nom;
             $item->descr=$description;
             $item->url=$url_page;
             $item->tarif=$prix;
             $item->save();
-            $url_listes = $this->container->router->pathFor( 'acceuil' ) ;
+            $url_listes = $this->app->router->pathFor( 'acceuil' ) ;
             return $rs->withRedirect($url_listes);
         }
 
@@ -93,7 +93,7 @@ class ControleurItem {
         $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
         if(is_null($item)){
             $rs->getBody()->write("l'item n'existe pas ");
-            $url_acceuil = $this->container->router->pathFor('racine');
+            $url_acceuil = $this->app->router->pathFor( 'acceuil' ) ;
             return $rs->withRedirect($url_acceuil);
         }else{
            $item->delete();

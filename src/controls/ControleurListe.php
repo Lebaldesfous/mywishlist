@@ -19,7 +19,7 @@ class ControleurListe
         $this->container=$container;
     }
 
-    public function acceuil(Request $rq, Response $rs, $args){
+    public function accueil(Request $rq, Response $rs, $args){
         $rs->getBody()->write(VueMenu::get($this->container,'',"acceuil"));
         return $rs;
     }
