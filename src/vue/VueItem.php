@@ -17,6 +17,21 @@ class VueItem
 
     }
 
+    public function modifierItem(){
+        $url_new_item= $this->container->router->pathFor('modifierItem',["id_item"=>$this->tab["id_item"]]);
+        $html =<<<FIN
+<form method="POST" action="$url_new_item">
+	<label>Nom Item:<br> <input type="text" name="nom"/></label><br>
+	<label>Description: <br><input type="text" name="description"/></label><br>
+	<label>Prix <br><input type="number" step="0.01" name="prix"/></label><br>	
+	<label>Url page internet:<br><input type="text" name="url_page"/></label><br>
+	<button type="submit">Modifier l'item</button>
+</form>	
+FIN;
+        $this->titre="Modifier Item";
+        return $html;
+    }
+
     public function creerItem(){
         $url_new_item= $this->container->router->pathFor('creerItem',["uuid"=>$this->tab["uuid"]]);
         $html =<<<FIN
@@ -37,6 +52,12 @@ FIN;
         switch($select){
             case 1:
                 $content = $this->creerItem();
+                break;
+            case 2:
+                $content=$this->modifierItem();
+                break;
+            case 3:
+                $content=$this->supprimerItem();
                 break;
             default:
                 $content ='';

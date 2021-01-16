@@ -22,8 +22,8 @@ $app->get("/liste/creer",ControleurListe::class.":formCreer")->setName("formList
 $app->post("/liste/creer",ControleurListe::class.":creer")->setName("creerListe");
 
 
-$app->get('/liste/modifier/{token}',ControleurListe::class.':formModifierListe')->setName('formModifierListe');
-$app->post("/liste/modifier/{token}",ControleurListe::class.':modifierListe')->setName('modifierListe');
+$app->get('/liste/{token}/modifier',ControleurListe::class.':formModifierListe')->setName('formModifierListe');
+$app->post("/liste/{token}/modifier",ControleurListe::class.':modifierListe')->setName('modifierListe');
 
 
 $app->get('/liste/{uuid}', ControleurListe::class.':getListe' )->setName('aff_liste' );
@@ -31,7 +31,12 @@ $app->get('/liste/{uuid}', ControleurListe::class.':getListe' )->setName('aff_li
 $app->get("/liste/{uuid}/creer",ControleurItem::class.":formCreerItem")->setName("formItem");
 $app->post("/liste/{uuid}/creer",ControleurItem::class.":creerItem")->setName("creerItem");
 
+$app->get("/liste/{uuid}/{id_item}/modifier",ControleurItem::class.":formModifierItem")->setName("formModifierItem");
+$app->post("/liste/{uuid}/{id_item}/modifier",ControleurItem::class.":ModifierItem")->setName("modifierItem");
+
 $app->get('/liste/{uuid}/item/{id_item}' , ControleurItem::class.':afficherItem'  )->setName('aff_item'  );
+
+$app->delete('/liste/{uuid}/{id_item}/modifier',ControleurItem::class.':supprimerItem')->setName('supprimerItem');
 
 
 $app->get('/nouvelitem',MonControleur::class.':formItem')->setName('formItem');

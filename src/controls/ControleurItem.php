@@ -29,7 +29,7 @@ class ControleurItem {
     }
 
     public function creerItem(Request $rq, Response $rs, $args){
-        $post = $rq->getParsedBody() ;
+        $post = $rq->getParsedBody();
         $idliste = filter_var($post['id_liste'] , FILTER_SANITIZE_STRING);
         $liste = Liste::all()->where("no","=",$idliste)->first();
         if(is_null($liste)){
@@ -37,7 +37,7 @@ class ControleurItem {
             $url_acceuil = $this->container->router->pathFor('racine');
             return $rs->withRedirect($url_acceuil);
         }else{
-            $nom       = filter_var($post['titre']       , FILTER_SANITIZE_STRING) ;
+            $nom       = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
             $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
             $prix = filter_var($post['prix'],FILTER_SANITIZE_NUMBER_FLOAT);
             $url_page=filter_var($post['description'] , FILTER_SANITIZE_URL);
@@ -48,6 +48,55 @@ class ControleurItem {
             $item->url=$url_page;
             $item->tarif=$prix;
             $item->save();
+            $url_listes = $this->container->router->pathFor( 'acceuil' ) ;
+            return $rs->withRedirect($url_listes);
+        }
+
+    }
+
+    public function formModifierItem(Request $rq, Response $rs, $args){
+        $vue = new VueItem($args,$this->app);
+        $rs->getBody()->write($vue->render(2));
+        return $rs;
+    }
+
+    public function ModifierItem(Request $rq, Response $rs, $args){
+        $post = $rq->getParsedBody();
+        $idliste = filter_var($post['id_liste'] , FILTER_SANITIZE_STRING);
+        $iditem= filter_var($post['id_item'] , FILTER_SANITIZE_STRING);
+        $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
+        if(is_null($item)){
+            $rs->getBody()->write("l'item n'existe pas ");
+            $url_acceuil = $this->container->router->pathFor('racine');
+            return $rs->withRedirect($url_acceuil);
+        }else{
+            $nom       = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
+            $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
+            $prix = filter_var($post['prix'],FILTER_SANITIZE_NUMBER_FLOAT);
+            $url_page=filter_var($post['description'] , FILTER_SANITIZE_URL);
+            $item->liste_id=$idliste;
+            $item->nom=$nom;
+            $item->descr=$description;
+            $item->url=$url_page;
+            $item->tarif=$prix;
+            $item->save();
+            $url_listes = $this->container->router->pathFor( 'acceuil' ) ;
+            return $rs->withRedirect($url_listes);
+        }
+
+    }
+
+    public function supprimerItem(Request $rq, Response $rs, $args){
+        $post = $rq->getParsedBody();
+        $idliste = filter_var($post['id_liste'] , FILTER_SANITIZE_STRING);
+        $iditem= filter_var($post['id_item'] , FILTER_SANITIZE_STRING);
+        $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
+        if(is_null($item)){
+            $rs->getBody()->write("l'item n'existe pas ");
+            $url_acceuil = $this->container->router->pathFor('racine');
+            return $rs->withRedirect($url_acceuil);
+        }else{
+           $item->delete();
         }
 
     }
