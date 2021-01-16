@@ -32,11 +32,11 @@ $app->get("/liste/{uuid}/creer",ControleurItem::class.":formCreerItem")->setName
 $app->post("/liste/{uuid}/creer",ControleurItem::class.":creerItem")->setName("creerItem");
 
 $app->get("/liste/{uuid}/{id_item}/modifier",ControleurItem::class.":formModifierItem")->setName("formModifierItem");
-$app->post("/liste/{uuid}/{id_item}/modifier",ControleurItem::class.":ModifierItem")->setName("modifierItem");
+$app->post("/liste/{uuid}/{id_item}/modifier",ControleurItem::class.":modifierItem")->setName("modifierItem");
 
 $app->get('/liste/{uuid}/item/{id_item}' , ControleurItem::class.':afficherItem'  )->setName('aff_item'  );
 
-$app->delete('/liste/{uuid}/{id_item}/modifier',ControleurItem::class.':supprimerItem')->setName('supprimerItem');
+$app->delete('/liste/{uuid}/{id_item}/supprimer',ControleurItem::class.':supprimerItem')->setName('supprimerItem');
 
 
 $app->get('/nouvelitem',MonControleur::class.':formItem')->setName('formItem');

@@ -18,12 +18,12 @@ class VueItem
     }
 
     public function modifierItem(){
-        $url_new_item= $this->container->router->pathFor('modifierItem',["uuid"=>'e35b86c734f614e2',"id_item"=>$this->tab["id_item"]]);
+        $url_new_item= $this->container->router->pathFor('modifierItem',["uuid"=>$this->tab["uuid"],"id_item"=>$this->tab["id_item"]]);
         $html =<<<FIN
 <form method="POST" action="$url_new_item">
 	<label>Nom Item:<br> <input type="text" name="nom"/></label><br>
 	<label>Description: <br><input type="text" name="description"/></label><br>
-	<label>Prix <br><input type="number" step="0.01" name="prix"/></label><br>	
+	<label>Prix <br><input type="text"  name="prix"/></label><br>	
 	<label>Url page internet:<br><input type="text" name="url_page"/></label><br>
 	<button type="submit">Modifier l'item</button>
 </form>	
