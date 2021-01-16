@@ -89,8 +89,8 @@ class ControleurItem {
 
     public function supprimerItem(Request $rq, Response $rs, $args){
         $post = $rq->getParsedBody();
-        $idliste = filter_var($post['id_liste'] , FILTER_SANITIZE_STRING);
-        $iditem= filter_var($post['id_item'] , FILTER_SANITIZE_STRING);
+        $idliste = filter_var($args['id_liste'] , FILTER_SANITIZE_STRING);
+        $iditem= filter_var($args['id_item'] , FILTER_SANITIZE_STRING);
         $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
         if(is_null($item)){
             $rs->getBody()->write("l'item n'existe pas ");
@@ -98,6 +98,8 @@ class ControleurItem {
             return $rs->withRedirect($url_acceuil);
         }else{
            $item->delete();
+           $url_acceuil = $this->app->router->pathFor( 'racine' ) ;
+           return $rs->withRedirect($url_acceuil);
         }
 
     }
