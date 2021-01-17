@@ -101,7 +101,7 @@ class VueMenu {
             $content
             </body>
         </html>
-        END;
+END;
     }
 
 
