@@ -22,7 +22,7 @@ class VueListe
 
         $html = "{$tab["titre"]}, {$tab["description"]}";
         foreach($this->tab[1] as $item){
-            $html .= "<li>{$item['nom']}, {$item['descr']}</li>";
+            $html .= "<li>{$item['nom']}, {$item['descr']}, {$item['img']}</li>";
         }
         $html = "<ul>$html</ul>";
         $this->titre = "Afficher Liste";

@@ -41,13 +41,14 @@ FIN;
 	<label>Prix <br><input type="text" name="prix"/></label><br>	
 	<label>Id Liste: <br><input type="text" name="id_liste"/></label><br>
 	<label>Url page internet:<br><input type="text" name="url_page"/></label><br>
-	<label>Url image:<br><input type="text" name="url_page"/></label><br>
+	<label>Url image:<br><input type="text" name="img"/></label><br>
 	<button type="submit">Enregistrer l'item</button>
 </form>	
 FIN;
         $this->titre="Creer Item";
         return $html;
     }
+
 
     public function render($select){
         switch($select){
