@@ -52,7 +52,7 @@ class VueMenu {
                 </div>
 
                 <div id="navbar" class="navbar-menu">
-                    <div class="navbar-start">
+                    <div class="navbar-start"></div>
 
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">
@@ -83,16 +83,16 @@ class VueMenu {
                     </div>
 
                     <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                        <a class="button is-info" href=$url_sign_up>
-                            <strong>S'inscrire</strong>
-                        </a>
-                        <a class="button is-light" href=$url_sign_in>
-                            Se connecter
-                        </a>
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-info" href=$url_sign_up>
+                                    <strong>S'inscrire</strong>
+                                </a>
+                                <a class="button is-light" href=$url_sign_in>
+                                    Se connecter
+                                </a>
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
             </nav>
