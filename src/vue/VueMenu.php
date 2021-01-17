@@ -21,6 +21,8 @@ class VueMenu {
         $url_form_login = $container->router->pathFor('formLogin');
         $url_test_login= $container->router->pathFor('testform');
 
+        $url_logo = 'https://www.carrefour.fr/media/540x540/Photosite/BAZAR/PAPETERIE/3037929416015_PHOTOSITE_20191115_050759_0.jpg?placeholder=1';
+
         return <<<END
         <!DOCTYPE html>
         <html>
@@ -29,12 +31,13 @@ class VueMenu {
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+                <link rel="icon" type="image/png" href="$url_logo" />
             </head>
             <body>
-            <nav class="navbar" role="navigation" aria-label="main navigation">
+            <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="$url_accueil">
-                    <img src="https://www.carrefour.fr/media/540x540/Photosite/BAZAR/PAPETERIE/3037929416015_PHOTOSITE_20191115_050759_0.jpg?placeholder=1" width="112" height="28">
+                        <img src="$url_logo">
                     </a>
 
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
