@@ -18,9 +18,6 @@ class ControleurItem {
         $this->app = $app;
     }
 
-    public function ajouterImage(Request $rq, Response $rs, $args){
-
-    }
 
     public function formCreerItem(Request $rq, Response $rs, $args){
         $vue = new VueItem($args,$this->app);
@@ -41,12 +38,14 @@ class ControleurItem {
             $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
             $prix = filter_var($post['prix'],FILTER_SANITIZE_NUMBER_FLOAT);
             $url_page=filter_var($post['url_page'] , FILTER_SANITIZE_URL);
+            $url_image = filter_var($post['img'], FILTER_SANITIZE_URL);
             $item = new Item();
             $item->liste_id=$idliste;
             $item->nom=$nom;
             $item->descr=$description;
             $item->url=$url_page;
             $item->tarif=$prix;
+            $item->img=$url_image;
             $item->save();
             $url_listes = $this->app->router->pathFor( 'racine' ) ;
             return $rs->withRedirect($url_listes);
@@ -75,11 +74,13 @@ class ControleurItem {
             $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
             $prix = filter_var($post['prix'],FILTER_SANITIZE_NUMBER_FLOAT);
             $url_page=filter_var($post['url_page'] , FILTER_SANITIZE_URL);
+            $url_image = filter_var($post['img'], FILTER_SANITIZE_URL);
             $item->liste_id=$idliste;
             $item->nom=$nom;
             $item->descr=$description;
             $item->url=$url_page;
             $item->tarif=$prix;
+            $item->img=$url_image;
             $item->save();
             $url_listes = $this->app->router->pathFor( 'racine' ) ;
             return $rs->withRedirect($url_listes);
