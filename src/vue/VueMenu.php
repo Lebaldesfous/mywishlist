@@ -38,70 +38,70 @@ class VueMenu {
                 <script src="modules/navbar-mobile.js"></script>
             </head>
             <body>
-            <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-                <div class="navbar-brand">
-                    <a class="navbar-item" href="$url_accueil">
-                        <img src="$url_logo">
-                    </a>
-
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                        <span aria-hidden="true"></span>
-                    </a>
-                </div>
-
-                <div id="navbar" class="navbar-menu">
-                    <div class="navbar-start"></div>
-
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
-                            Listes
+                <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="$url_accueil">
+                            <img src="$url_logo">
                         </a>
 
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item" href="$url_listes">
-                                Listes
-                            </a>
-                            <a class="navbar-item" href="$url_form_liste">
-                                Ajouter
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="navbar-item has-dropdown is-hoverable">
-                        <a class="navbar-link">
-                            Items
+                        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
+                            <span aria-hidden="true"></span>
                         </a>
+                    </div>
 
-                        <div class="navbar-dropdown">
-                            <a class="navbar-item" href="$url_form_item">
-                                Ajouter
-                            </a>
+                    <div id="navbar" class="navbar-menu">
+                        <div class="navbar-start">
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">
+                                    Listes
+                                </a>
+
+                                <div class="navbar-dropdown">
+                                    <a class="navbar-item" href="$url_listes">
+                                        Listes
+                                    </a>
+                                    <a class="navbar-item" href="$url_form_liste">
+                                        Ajouter
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <a class="navbar-link">
+                                    Items
+                                </a>
+
+                                <div class="navbar-dropdown">
+                                    <a class="navbar-item" href="$url_form_item">
+                                        Ajouter
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    </div>
 
-                    <div class="navbar-end">
-                        <div class="navbar-item">
-                            <div class="buttons">
-                                <a class="button is-info" href=$url_sign_up>
-                                    <strong>S'inscrire</strong>
-                                </a>
-                                <a class="button is-light" href=$url_sign_in>
-                                    Se connecter
-                                </a>
+                        <div class="navbar-end">
+                            <div class="navbar-item">
+                                <div class="buttons">
+                                    <a class="button is-info" href=$url_sign_up>
+                                        <strong>S'inscrire</strong>
+                                    </a>
+                                    <a class="button is-light" href=$url_sign_in>
+                                        Se connecter
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </nav>
-            <h1 class="has-text-right is-size-4 mr-2 mt-3">$title</h1>
-            <hr>
-            $content
+                </nav>
+                <h1 class="has-text-right is-size-4 mr-2 mt-3">$title</h1>
+                <hr>
+                $content
             </body>
         </html>
-        END;
+END;
     }
 
 
