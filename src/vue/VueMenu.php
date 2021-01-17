@@ -96,9 +96,11 @@ class VueMenu {
                         </div>
                     </div>
                 </nav>
-                <h1 class="has-text-right is-size-4 mr-2 mt-3">$title</h1>
+                <h1 class="has-text-centered title mr-2 mt-3">$title</h1>
                 <hr>
-                $content
+                <div class="notification is-white m-5 box">
+                    $content
+                </div>
             </body>
         </html>
 END;
