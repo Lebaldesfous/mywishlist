@@ -64,7 +64,7 @@ class MonControleur {
 
 	public function afficherListes(Request $rq, Response $rs, $args) {
 	    $listel=\mywishlist\models\Liste::all();
-        $vue= new \mywishlist\vue\vueParticipant($listel->toArray(),$this->app);
+        $vue= new \mywishlist\vue\VueParticipant($listel->toArray(),$this->app);
 		$rs->getBody()->write($vue->render(1)) ;
 		return $rs;
 	}
