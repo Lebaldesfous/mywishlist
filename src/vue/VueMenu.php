@@ -41,14 +41,15 @@ class VueMenu {
                     </a>
 
                     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
                     </a>
                 </div>
 
                 <div id="navbarBasicExample" class="navbar-menu">
                     <div class="navbar-start">
+                    <!--
                     <a class="navbar-item">
                         Home
                     </a>
@@ -56,26 +57,41 @@ class VueMenu {
                     <a class="navbar-item">
                         Documentation
                     </a>
+                    -->
 
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">
-                        More
+                            Listes
                         </a>
 
                         <div class="navbar-dropdown">
-                        <a class="navbar-item">
-                            About
+                            <a class="navbar-item" href="$url_listes">
+                                Listes
+                            </a>
+                            <a class="navbar-item" href="$url_form_liste">
+                                Ajouter
+                            </a>
+                            <!--
+                            <a class="navbar-item">
+                                Contact
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item">
+                                Report an issue
+                            </a>
+                            -->
+                        </div>
+                    </div>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            Items
                         </a>
-                        <a class="navbar-item">
-                            Jobs
-                        </a>
-                        <a class="navbar-item">
-                            Contact
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item">
-                            Report an issue
-                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="$url_form_item">
+                                Ajouter
+                            </a>
                         </div>
                     </div>
                     </div>
@@ -93,18 +109,7 @@ class VueMenu {
                     </div>
                     </div>
                 </div>
-                </nav>
-                <h1><a href="$url_accueil">MyWishList</a></h1>
-                <nav>
-                    <ul>
-                        <li><a href="$url_accueil">Accueil</a></li>
-                        <li><a href="$url_listes">Listes</a></li>
-                        <li><a href="$url_form_liste">Nouvelle Liste</a></li>
-                        <li><a href="$url_form_item">Nouvel Item</a></li>
-                        <li><a href="$url_form_login">Nouveau Login</a></li>
-                        <li><a href="$url_test_login">Test Login</a></li>
-                    </ul>
-                </nav>
+            </nav>
             $content
             </body>
         </html>
