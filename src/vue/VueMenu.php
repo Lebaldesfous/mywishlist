@@ -35,6 +35,7 @@ class VueMenu {
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
                 <link rel="icon" type="image/png" href="$url_logo" />
+                <script src="modules/navbar-mobile.js"></script>
             </head>
             <body>
             <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
@@ -43,24 +44,15 @@ class VueMenu {
                         <img src="$url_logo">
                     </a>
 
-                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
 
-                <div id="navbarBasicExample" class="navbar-menu">
+                <div id="navbar" class="navbar-menu">
                     <div class="navbar-start">
-                    <!--
-                    <a class="navbar-item">
-                        Home
-                    </a>
-
-                    <a class="navbar-item">
-                        Documentation
-                    </a>
-                    -->
 
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">
@@ -74,15 +66,6 @@ class VueMenu {
                             <a class="navbar-item" href="$url_form_liste">
                                 Ajouter
                             </a>
-                            <!--
-                            <a class="navbar-item">
-                                Contact
-                            </a>
-                            <hr class="navbar-divider">
-                            <a class="navbar-item">
-                                Report an issue
-                            </a>
-                            -->
                         </div>
                     </div>
 
@@ -113,7 +96,8 @@ class VueMenu {
                     </div>
                 </div>
             </nav>
-            <h1 class="has-text-centered is-size-4">$title</h1>
+            <h1 class="has-text-right is-size-4 mr-2 mt-3">$title</h1>
+            <hr>
             $content
             </body>
         </html>
