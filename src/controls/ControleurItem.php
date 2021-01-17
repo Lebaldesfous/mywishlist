@@ -7,6 +7,7 @@ namespace mywishlist\controls;
 use mywishlist\models\Item;
 use mywishlist\models\Liste;
 use mywishlist\vue\VueItem;
+use mywishlist\vue\VueMenu;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -30,13 +31,12 @@ class ControleurItem {
         $idliste = filter_var($post['id_liste'] , FILTER_SANITIZE_STRING);
         $liste = Liste::all()->where("no","=",$idliste)->first();
         if(is_null($liste)){
-            $rs->getBody()->write("L'id_liste ne correspond à aucune liste");
-            $url_acceuil = $this->app->router->pathFor('racine');
-            return $rs->withRedirect($url_acceuil);
+            $rs->getBody()->write(VueMenu::get($this->app,"L'id_liste ne correspond à aucune liste","Erreur Creation"));
+            return $rs;
         }else{
             $nom       = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
             $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
-            $prix = filter_var($post['prix'],FILTER_SANITIZE_NUMBER_FLOAT);
+            $prix = filter_var($post['prix'],FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
             $url_page=filter_var($post['url_page'] , FILTER_SANITIZE_URL);
             $url_image = filter_var($post['img'], FILTER_SANITIZE_URL);
             $item = new Item();
@@ -72,7 +72,7 @@ class ControleurItem {
         }else{
             $nom       = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
             $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
-            $prix = filter_var($post['prix'],FILTER_SANITIZE_NUMBER_FLOAT);
+            $prix = filter_var($post['prix'],FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION);
             $url_page=filter_var($post['url_page'] , FILTER_SANITIZE_URL);
             $url_image = filter_var($post['img'], FILTER_SANITIZE_URL);
             $item->liste_id=$idliste;
