@@ -38,9 +38,10 @@ FIN;
 <form method="POST" action="$url_new_item">
 	<label>Nom Item:<br> <input type="text" name="nom"/></label><br>
 	<label>Description: <br><input type="text" name="description"/></label><br>
-	<label>Prix <br><input type="number" step="0.01" name="prix"/></label><br>	
+	<label>Prix <br><input type="text" name="prix"/></label><br>	
 	<label>Id Liste: <br><input type="text" name="id_liste"/></label><br>
 	<label>Url page internet:<br><input type="text" name="url_page"/></label><br>
+	<label>Url image:<br><input type="text" name="url_page"/></label><br>
 	<button type="submit">Enregistrer l'item</button>
 </form>	
 FIN;
