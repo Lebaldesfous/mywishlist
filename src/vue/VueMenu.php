@@ -23,6 +23,9 @@ class VueMenu {
 
         $url_logo = 'https://www.carrefour.fr/media/540x540/Photosite/BAZAR/PAPETERIE/3037929416015_PHOTOSITE_20191115_050759_0.jpg?placeholder=1';
 
+        $url_sign_up = "#";
+        $url_sign_in = "#";
+
         return <<<END
         <!DOCTYPE html>
         <html>
@@ -99,17 +102,18 @@ class VueMenu {
                     <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                        <a class="button is-primary">
-                            <strong>Sign up</strong>
+                        <a class="button is-info" href=$url_sign_up>
+                            <strong>S'inscrire</strong>
                         </a>
-                        <a class="button is-light">
-                            Log in
+                        <a class="button is-light" href=$url_sign_in>
+                            Se connecter
                         </a>
                         </div>
                     </div>
                     </div>
                 </div>
             </nav>
+            <h1 class="has-text-centered is-size-4">$title</h1>
             $content
             </body>
         </html>
