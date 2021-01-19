@@ -18,6 +18,7 @@ class VueItem
     }
 
     public function modifierItem(){
+        $url_new_item= $this->container->router->pathFor('modifierItem',["uuid"=>$this->tab["uuid"],"id_item"=>$this->tab["id_item"]]);
         $html =<<<FIN
 <form method="POST" action="$url_new_item">
 	<label>Nom Item:<br> <input type="text" name="nom"/></label><br>
@@ -33,6 +34,9 @@ FIN;
     }
 
     private function afficherItem() {
+        $tab=$this->tab[0];
+        $html = "<div class='separate-line'>";
+        $this->titre = "Afficher Liste";
         $tab=$this->tab;
         $divTitle = "
         <div class='item-title-desc'>
