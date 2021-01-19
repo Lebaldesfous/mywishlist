@@ -21,10 +21,9 @@ class ControleurItem {
 
     public function afficherItem(Request $rq, Response $rs, $args){
         $id=$args["id_item"];
-        $item = item::find($id)->first();
-
+        $item = Item::find($id);
         $vue = new VueItem($item,$this->app);
-        $rs->getBody()->write($vue->render(1)) ;
+        $rs->getBody()->write($vue->render(0)) ;
 
         return $rs;
     }
@@ -50,6 +49,10 @@ class ControleurItem {
             $rs->getBody()->write($vue->render(1));
             return $rs;
         }
+    }
+
+    public function reserverItem(Request $rq, Response $rs, $args){
+        
     }
 
     public function creerItem(Request $rq, Response $rs, $args){
