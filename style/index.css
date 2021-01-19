@@ -34,9 +34,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 1rem;
 }
 
 .item-title-desc>img{
     width: 64px;
     border-radius: 0.5rem;
+}
+
+a, a:hover, a:focus{
+    text-decoration: none!important;
 }
