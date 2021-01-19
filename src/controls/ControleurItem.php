@@ -58,10 +58,16 @@ class ControleurItem {
         $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
 
         $id_user = filter_var($post['iduser'], FILTER_SANITIZE_NUMBER_INT);
-        $item->iduser=$id_user;
-        $item->save();
-        $url_listes = $this->app->router->pathFor( 'racine' ) ;
-        return $rs->withRedirect($url_listes);
+        if($item->iduser == NULL){
+            $item->iduser=$id_user;
+            $item->save();
+            $url_listes = $this->app->router->pathFor( 'racine' ) ;
+            return $rs->withRedirect($url_listes);
+        }else{
+            $rs->getBody()->write(VueMenu::get($this->app,"L'item a déjà été réservé","Erreur Réservation"));
+            return $rs;
+        }
+
     }
 
     public function creerItem(Request $rq, Response $rs, $args){
