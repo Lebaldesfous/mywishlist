@@ -70,8 +70,8 @@ class ControleurListe
         $liste = Liste::all()->where("token","=",$token);
         if(is_null($liste)){
             $rs->getBody()->write("Le token ne correspond à aucune liste");
-            $url_acceuil = $this->container->router->pathFor('racine');
-            return $rs->withRedirect($url_acceuil);
+            $url_accueil = $this->container->router->pathFor('racine');
+            return $rs->withRedirect($url_accueil);
         }else{
             $post = $rq->getParsedBody() ;
             $titre       = filter_var($post['titre']       , FILTER_SANITIZE_STRING) ;

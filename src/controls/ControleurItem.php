@@ -73,8 +73,8 @@ class ControleurItem {
 
         if(is_null($item)){
             $rs->getBody()->write("l'item n'existe pas ");
-            $url_acceuil = $this->app->router->pathFor('racine');
-            return $rs->withRedirect($url_acceuil);
+            $url_accueil = $this->app->router->pathFor('racine');
+            return $rs->withRedirect($url_accueil);
         }else{
             $nom       = filter_var($post['nom']       , FILTER_SANITIZE_STRING) ;
             $description = filter_var($post['description'] , FILTER_SANITIZE_STRING) ;
@@ -101,12 +101,12 @@ class ControleurItem {
         $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
         if(is_null($item)){
             $rs->getBody()->write("l'item n'existe pas ");
-            $url_acceuil = $this->app->router->pathFor( 'racine' ) ;
-            return $rs->withRedirect($url_acceuil);
+            $url_accueil = $this->app->router->pathFor( 'racine' ) ;
+            return $rs->withRedirect($url_accueil);
         }else{
            $item->delete();
-           $url_acceuil = $this->app->router->pathFor( 'racine' ) ;
-           return $rs->withRedirect($url_acceuil);
+           $url_accueil = $this->app->router->pathFor( 'racine' ) ;
+           return $rs->withRedirect($url_accueil);
         }
 
     }
