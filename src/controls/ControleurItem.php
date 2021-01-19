@@ -57,18 +57,11 @@ class ControleurItem {
         $iditem= filter_var($args['id_item'] , FILTER_SANITIZE_STRING);
         $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
 
-        $id_item = filter_var($post['iditem'], FILTER_SANITIZE_NUMBER_INT);
         $id_user = filter_var($post['iduser'], FILTER_SANITIZE_NUMBER_INT);
-        $item->liste_id=$idliste;
-        $item->nom=$nom;
-        $item->descr=$description;
-        $item->url=$url_page;
-        $item->tarif=$prix;
-        $item->img=$url_image;
+        $item->iduser=$id_user;
         $item->save();
         $url_listes = $this->app->router->pathFor( 'racine' ) ;
         return $rs->withRedirect($url_listes);
-        }
     }
 
     public function creerItem(Request $rq, Response $rs, $args){
