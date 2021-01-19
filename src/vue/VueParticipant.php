@@ -2,27 +2,27 @@
 namespace mywishlist\vue;
 
 class VueParticipant {
-	
-	private $tab; // tab array PHP
+
+    private $tab; // tab array PHP
     private $container;
-	
-	public function __construct($tab,$container) {
-		$this->tab = $tab;
-		$this->container=$container;
-	}
-	
-	private function lesListes() {
+
+    public function __construct($tab,$container) {
+        $this->tab = $tab;
+        $this->container=$container;
+    }
+
+    private function lesListes() {
         $html = '';
         foreach($this->tab as $liste){
             $html .= "<li>{$liste['titre']}, {$liste['description']}</li>";
         }
         $html = "<ul>$html</ul>";
         return $html;
-	}
+    }
 
 
 
-	private function unItem(){
+    private function unItem(){
         $i = $this->tab[0];
         $html = "<h2>Item {$i['id']}</h2>";
         $html .= "<b>Nom:</b> {$i['nom']}<br>";
@@ -31,7 +31,7 @@ class VueParticipant {
         return $html;
     }
     private function formListe(){
-	    $url_new_liste= $this->container->router->pathFor('newListe');
+        $url_new_liste= $this->container->router->pathFor('newListe');
         $html =<<<FIN
 <form method="POST" action="$url_new_liste">
 	<label>Titre:<br> <input type="text" name="titre"/></label><br>
@@ -82,19 +82,15 @@ FIN;
 
 
 
-	public function render( $select ) {
-		
-		switch ($select) {
+    public function render( $select ) {
+
+        switch ($select) {
             case 1 :
-            { // liste des listes
                 $content = $this->lesListes();
                 break;
-            }
             case 3 :
-            { // un item
                 $content = $this->unItem();
                 break;
-            }
             case 5:
                 $content=$this->formListe();
                 break;
@@ -147,7 +143,9 @@ FIN;
     $content
   </body>
 </html>
-FIN;	return $html;
-	}
+FIN;
+
+        return $html;
+    }
 
 }
