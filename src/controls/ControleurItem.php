@@ -29,7 +29,7 @@ class ControleurItem {
     }
 
     public function formCreerItem(Request $rq, Response $rs, $args){
-        if (session_status() == PHP_SESSION_NONE) {
+        if (is_null($_SESSION['user'])) {
             $url_connexion= $this->app->router->pathFor('connexion');
             return $rs->withRedirect($url_connexion);
         }else{
@@ -41,7 +41,7 @@ class ControleurItem {
     }
 
     public function formReserverItem(Request $rq, Response $rs, $args){
-        if(session_status() == PHP_SESSION_NONE){
+        if(is_null($_SESSION['user'])){
             $url_connexion= $this->app->router->pathFor('connexion');
             return $rs->withRedirect($url_connexion);
         }else{
