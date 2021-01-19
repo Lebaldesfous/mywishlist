@@ -21,9 +21,15 @@ class ControleurItem {
 
 
     public function formCreerItem(Request $rq, Response $rs, $args){
-        $vue = new VueItem($args,$this->app);
-        $rs->getBody()->write($vue->render(1));
-        return $rs;
+        if (session_status() == PHP_SESSION_NONE) {
+            $url_connexion= $this->app->router->pathFor('connexion');
+            return $rs->withRedirect($url_connexion;
+        }else{
+            $vue = new VueItem($args,$this->app);
+            $rs->getBody()->write($vue->render(1));
+            return $rs;
+        }
+
     }
 
     public function creerItem(Request $rq, Response $rs, $args){

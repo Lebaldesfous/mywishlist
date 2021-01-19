@@ -4,10 +4,10 @@ namespace mywishlist\controls;
 
 class ControleurConnexion {
 
-    public static function inscription(Request $req, Response $res, $args) {
+    public static function inscription(Request $rq, Response $res, $args) {
 
         session_start();
-        $info = $rq->getParsedBody() ;
+        $post = $rq->getParsedBody() ;
         $login = filter_var($post['login'], FILTER_SANITIZE_STRING);
         $password = filter_var($post['password'] , FILTER_SANITIZE_STRING);
         $user = User::where('login','=',$login)->first();
@@ -22,10 +22,10 @@ class ControleurConnexion {
 
     }
 
-    public static function connexion(Request $req, Response $res, $args) {
+    public static function connexion(Request $rq, Response $res, $args) {
 
         session_start();
-        $info = $rq->getParsedBody() ;
+        $post = $rq->getParsedBody() ;
         $login = filter_var($post['login'], FILTER_SANITIZE_STRING);
         $password = filter_var($post['password'] , FILTER_SANITIZE_STRING);
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
