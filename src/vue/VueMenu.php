@@ -4,27 +4,41 @@ namespace mywishlist\vue;
 
 class VueMenu {
 
-    private static function getConnectButtons($container) {
-
+    private static function getEndbarInfo($container) {
         $url_sign_up = $container->router->pathFor('inscription');
         $url_sign_in = $container->router->pathFor('connexion');
         $url_deconnect = $container->router->pathFor('deconnect');
+        $profile = $container->router->pathFor('profil');
         $html = <<<END
-        <a class="button is-info" href=$url_sign_up>
-            <strong>S'inscrire</strong>
-        </a>
-        <a class="button is-light" href=$url_sign_in>
-            Se connecter
-        </a>
+        <div class="buttons">
+            <a class="button is-info" href=$url_sign_up>
+                <strong>S'inscrire</strong>
+            </a>
+            <a class="button is-light" href=$url_sign_in>
+                Se connecter
+            </a>
+        </div>
 END;
 
         if (isset($_SESSION['user'])) {
+
             $html = <<<END
-            <form action=$url_deconnect method="POST">
-                <a class="button is-info" onclick="this.parentNode.submit()">
-                    <strong>Déconnexion</strong>
-                </a>
-            </form>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Profil
+                    </a>
+
+                    <div class="navbar-dropdown is-right">
+                        <a class="navbar-item" href="$profile">
+                            Voir Profil
+                        </a>
+                        <form action=$url_deconnect method="POST">
+                            <a class="navbar-item" onclick="this.parentNode.submit()">
+                                Déconnexion
+                            </a>
+                        </form>
+                    </div>
+                </div>
 END;
         }
 
@@ -40,9 +54,11 @@ END;
      */
     public static function get($container, $content, $title): string {
 
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 
-        $connectButtons = VueMenu::getConnectButtons($container);
+        $endbar = VueMenu::getEndbarInfo($container);
 
         $root    = $container->router->pathFor( 'racine'                 ) ;
         $url_listes     = $container->router->pathFor( 'aff_listes'             ) ;
@@ -119,9 +135,7 @@ END;
 
                         <div class="navbar-end">
                             <div class="navbar-item">
-                                <div class="buttons">
-                                    $connectButtons
-                                </div>
+                                $endbar
                             </div>
                         </div>
                     </div>

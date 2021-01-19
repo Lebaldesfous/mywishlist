@@ -48,8 +48,9 @@ class ControleurConnexion {
             $u->pass=password_hash($password, PASSWORD_DEFAULT);
             $u->save();
             $_SESSION['user'] = $u;
+            return $res->withRedirect($this->app->router->pathFor("racine"));
         }
-        $redirect = $this->app->router->pathFor("racine");
+        $redirect = $this->app->router->pathFor("pageConnexion");
         return $res->withRedirect($redirect);
 
     }
@@ -64,9 +65,10 @@ class ControleurConnexion {
             if (password_verify($password, $user->pass)) {
                 unset($user->pass);
                 $_SESSION['user'] = $user;
+                return $res->withRedirect($this->app->router->pathFor("racine"));
             }
         }
-        $redirect = $this->app->router->pathFor("racine");
+        $redirect = $this->app->router->pathFor("pageConnexion");
         return $res->withRedirect($redirect);
 
     }

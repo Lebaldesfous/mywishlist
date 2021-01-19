@@ -22,6 +22,7 @@ Nous avons structuré notre dépôt, de façon à ne pas être désorganisés.
         * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> models : contient les modèles, le coeur de l'application
         * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> vue : contient toutes les différentes vues de l'application
     * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> web : répertoire contenant les fichiers statiques
+    * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> styles : répertoire contenant les styles CSS additionnels
         * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> img : Répertoire contenant les images
     - <img src="https://i.pinimg.com/originals/7f/d2/e4/7fd2e46b2da9819e667fb75caf475cf7.png" alt="fichier " width="18"/> .gitignore : fichier contenant les données (répertoires ou fichiers) qui ne doivent pas être suivis par git
     - <img src="https://i.pinimg.com/originals/7f/d2/e4/7fd2e46b2da9819e667fb75caf475cf7.png" alt="fichier " width="18"/> .htaccess : fichier de configuration d'Apache pour effectuer correctement les redirections
@@ -89,7 +90,7 @@ Pour mettre en place le projet, veuillez suivre **attentivement** les étapes ci
 
 17. [x] Créer un compte
 18. [x] S'authentifier
-19. [ ] Modifier son compte
+19. [x] Modifier son compte
 20. [ ] Rendre une liste publique
 21. [ ] Afficher les listes de souhaites publiques
 22. [ ] Créer une cagnotte
@@ -105,6 +106,20 @@ Pour mettre en place le projet, veuillez suivre **attentivement** les étapes ci
 
 Le site a été déployé, et il est disponible à [cette adresse][SITE].
 
-## 5. Répartition des tâches
+## 5. Ce qui a été fait
 
-TODO
+### 5.1. Théo CHAPELLE
+
+- Extension 17
+- Extension 18
+- Extension 19
+- Ajout du menu
+- Ajout du squelette CSS des pages
+- Implémentation Javascript pour un menu responsive
+- Création d'une classe utilitaire pour gérer la génération efficace des pages
+
+### 5.2. Matis CHASTIN
+
+### 5.3. Guillaume HUET
+
+### 5.4. Darius KIAÏE

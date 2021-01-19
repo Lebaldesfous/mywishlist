@@ -5,6 +5,7 @@ use \mywishlist\controls\MonControleur;
 use \mywishlist\controls\ControleurListe;
 use \mywishlist\controls\ControleurItem;
 use \mywishlist\controls\ControleurConnexion;
+use \mywishlist\controls\ControleurProfil;
 
 $config = ['settings' => [
 		'displayErrorDetails' => true
@@ -42,10 +43,13 @@ $app->delete('/liste/{uuid}/{id_item}/supprimer',ControleurItem::class.':supprim
 $app->get('/inscription',ControleurConnexion::class.':pageInscription')->setName('pageInscription');
 $app->get('/connexion',ControleurConnexion::class.':pageConnexion')->setName('pageConnexion');
 
+$app->get('/profil',ControleurProfil::class.':afficherProfil')->setName('profil');
+
 $app->post('/inscription',ControleurConnexion::class.':inscription')->setName('inscription');
 $app->post('/connexion',ControleurConnexion::class.':connexion')->setName('connexion');
 $app->post('/deconnect',ControleurConnexion::class.':deconnect')->setName('deconnect');
 
+$app->post('/profile/changePassword',ControleurProfil::class.':changerMotDePasse')->setName('changePassword');
 
 $app->get('/nouvelitem',MonControleur::class.':formItem')->setName('formItem');
 $app->post('/nouvelitem',MonControleur::class.':newItem')->setName('newItem');
