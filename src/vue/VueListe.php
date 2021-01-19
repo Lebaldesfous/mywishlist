@@ -21,15 +21,16 @@ class VueListe
         $tab=$this->tab[0];
         $divTitle = "<h3 class='subtitle mb-2'>Titre : {$tab["titre"]}</h3><p class='mb-3'>Description : {$tab["description"]}</p>";
         $li = "";
-        foreach($this->tab[1] as $item){    
+        foreach($this->tab[1] as $item){
+            $url_res_item = $this->container->router->pathFor('aff_item', ["uuid"=>$this->tab[0]["no"], "id_item"=>$item["id"]]);
             $state=$item['etat'] == 0 ? 'Non réservé' : 'Réservé';
-            $li .= "<li class='item-list'>
+            $li .= "<a class='item-list' href=$url_res_item>
             <div class='item-desc'>
                 <img src='/mywishlist/web/img/{$item['img']}'/>
                 <p>{$item['nom']}, {$item['descr']}</p>
             </div>
                 <p>{$state}</p>
-            </li>";
+            </a>";
         }
         $html = "$divTitle<div class='separate-line'></div><ul>$li</ul>";
         $this->titre = "Afficher Liste";
