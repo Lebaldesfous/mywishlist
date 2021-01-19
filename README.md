@@ -11,7 +11,7 @@ Ce projet doit être écrit dans le langage [PHP](https://www.php.net/docs.php),
 Nous avons structuré notre dépôt, de façon à ne pas être désorganisés.
 
 * Répertoire principal
-    * modules : répertoire contenant les modules Javascript externes.
+    * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" width="20" /> modules : répertoire contenant les modules Javascript externes.
     * src : répertoire de code, où se trouve la grande partie du code PHP
         * conf : répertoire contenant les fichiers de configuration
         * controls : contient l'intégralité des contrôleurs
