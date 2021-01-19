@@ -25,6 +25,7 @@ class VueItem
 	<label>Description: <br><input type="text" name="description"/></label><br>
 	<label>Prix <br><input type="text"  name="prix"/></label><br>	
 	<label>Url page internet:<br><input type="text" name="url_page"/></label><br>
+	<label>Url image:<br><input type="text" name="img"/></label><br>
 	<button type="submit">Modifier l'item</button>
 </form>	
 FIN;
