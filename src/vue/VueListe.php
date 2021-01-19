@@ -17,6 +17,21 @@ class VueListe
 
     }
 
+    private function afficherListes() {
+        $li = "";
+        foreach($this->tab as $liste){
+            $li .= "<div class='item-list'>
+                <p>{$liste['titre']}</p>
+                <p>{$liste['description']}</p>
+                <p>{$liste['expiration']}</p>
+            </div>
+            <div class='separate-line bg-blue w-15'></div>";
+        }
+        $html = "<div class='separate-line'></div><ul>$li</ul>";
+        $this->titre = "Afficher listes";
+        return $html;
+    }
+
     private function afficherListe() {
         $tab=$this->tab[0];
         $divTitle = "<h3 class='subtitle mb-2'>Titre : {$tab["titre"]}</h3><p class='mb-3'>Description : {$tab["description"]}</p>";
@@ -33,7 +48,7 @@ class VueListe
             </a>";
         }
         $html = "$divTitle<div class='separate-line'></div><ul>$li</ul>";
-        $this->titre = "Afficher Liste";
+        $this->titre = "Afficher liste";
         return $html;
     }
 
@@ -69,11 +84,13 @@ FIN;
     public function render( $select ) {
 
         switch ($select) {
+            case(0):
+                $content=$this->afficherListes();
+                break;
             case(1):
                 $content=$this->afficherListe();
                 break;
             case(2):
-
                 $content =$this->creerListe();
                 break;
             case(3):

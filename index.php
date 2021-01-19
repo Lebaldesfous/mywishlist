@@ -17,7 +17,7 @@ $container = new \Slim\Container($config);
 $app = new \Slim\App($container);
 
 $app->get('/'          , ControleurListe::class.':accueil'       )->setName('racine'    );
-$app->get('/listes'    , MonControleur::class.':afficherListes')->setName('aff_listes');
+$app->get('/listes'    , ControleurListe::class.':afficherListes')->setName('aff_listes');
 
 $app->get("/liste/creer",ControleurListe::class.":formCreer")->setName("formListe");
 $app->post("/liste/creer",ControleurListe::class.":creer")->setName("creerListe");

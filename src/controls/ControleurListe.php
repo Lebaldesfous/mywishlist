@@ -36,6 +36,14 @@ class ControleurListe
         return $rs;
     }
 
+    public function afficherListes(Request $rq, Response $rs, $args) {
+        $listes = Liste::all();
+        $vue = new VueListe($listes,$this->container);
+        $rs->getBody()->write($vue->render(0)) ;
+
+        return $rs;
+	}
+
     public function formCreer(Request $rq, Response $rs, $args){
         if (is_null($_SESSION['user'])) {
             $url_connexion= $this->app->router->pathFor('connexion');

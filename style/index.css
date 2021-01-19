@@ -11,6 +11,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
+    width: 100%;
 }
 
 .item-desc{
@@ -44,4 +45,12 @@
 
 a, a:hover, a:focus{
     text-decoration: none!important;
+}
+
+.bg-blue{
+    background: rgb(5, 151, 219);
+}
+
+.w-15{
+    width: 15%;
 }

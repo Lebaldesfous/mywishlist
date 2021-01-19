@@ -68,7 +68,7 @@ END;
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1">
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-                <link rel="stylesheet" href="/mywishlist/style/index.css">
+                <link rel="stylesheet" href="$root/style/index.css">
                 <link rel="icon" type="image/png" href="$url_logo" />
                 <script src="$root/modules/navbar-mobile.js"></script>
                 <script src="$root/modules/setup.js"></script>

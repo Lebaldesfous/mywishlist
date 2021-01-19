@@ -31,6 +31,7 @@ class ControleurConnexion {
     public function deconnect(Request $rq, Response $res, $args) {
         session_start();
         unset($_SESSION['user']);
+        session_destroy();
 		$redirect = $this->app->router->pathFor("racine");
         return $res->withRedirect($redirect);
     }
