@@ -1,5 +1,6 @@
 [PHP]: https://www.php.net/docs.php
 [SUJET]: https://github.com/Lebaldesfous/mywishlist/blob/main/sujet.pdf
+[SITE]: https://mywishlist.jeufore-api.fr
 
 # Projet mywishlist
 
@@ -53,7 +54,7 @@ Pour mettre en place le projet, veuillez suivre **attentivement** les étapes ci
 4. Localisez votre dossier contenant votre installation de XAMPP
    1. Sous **Linux** :
       1. Placez vous dans le dossier `/opt/lampp/htdocs` (si vous n'avez pas les permissions nécessaires, passez en superutilisateur avec `sudo su`)
-      2. Créez un lien symbolique entre votre dossier contenant l'application, et `/opt/lampp/htdocs` : `ln -s lienVersVotreDossierContenantLApplication ./mywishlist
+      2. Créez un lien symbolique entre votre dossier contenant l'application, et `/opt/lampp/htdocs` : `ln -s lienVersVotreDossierContenantLApplication ./mywishlist`.
 5. Créez votre votre base de données MySQL avec le contenu du fichier `src/conf/DATABASE.sql`.
 6. Lancer XAMPP
 7. Rendez-vous sur [cet URL](http://localhost/mywishlist).
@@ -102,7 +103,7 @@ Pour mettre en place le projet, veuillez suivre **attentivement** les étapes ci
 
 ## 4. Déploiement
 
-Le site a été déployé, et il est disponible à [cette adresse][XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX].
+Le site a été déployé, et il est disponible à [cette adresse][SITE].
 
 ## 5. Répartition des tâches
 
