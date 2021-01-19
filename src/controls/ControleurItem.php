@@ -53,7 +53,7 @@ class ControleurItem {
     }
 
     public function reserverItem(Request $rq, Response $rs, $args){
-        
+
     }
 
     public function creerItem(Request $rq, Response $rs, $args){
