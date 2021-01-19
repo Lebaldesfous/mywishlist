@@ -20,7 +20,7 @@ class ControleurListe
     }
 
     public function accueil(Request $rq, Response $rs, $args){
-        $rs->getBody()->write(VueMenu::get($this->container,'',"acceuil"));
+        $rs->getBody()->write(VueMenu::get($this->container,'',"accueil"));
         return $rs;
     }
 
