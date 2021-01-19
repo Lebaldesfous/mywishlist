@@ -123,3 +123,7 @@ Le site a été déployé, et il est disponible à [cette adresse][SITE].
 ### 5.3. Guillaume HUET
 
 ### 5.4. Darius KIAÏE
+
+- Fonctionnalité 3 pour la réservation d'un item
+- Fonctionnalité 11 pour l'ajout d'une image à un item
+- Fonctionnalité 12 pour la modification d'une image d'un item
