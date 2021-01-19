@@ -29,3 +29,14 @@
     border-radius: 0.5rem;
     margin-right: 1rem;
 }
+
+.item-title-desc{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item-title-desc>img{
+    width: 64px;
+    border-radius: 0.5rem;
+}

@@ -34,9 +34,24 @@ FIN;
     }
 
     private function afficherItem() {
-        $tab=$this->tab[0];
-        $html = "<div class='separate-line'>";
-        $this->titre = "Afficher Liste";
+        $tab=$this->tab;
+        $divTitle = "
+        <div class='item-title-desc'>
+        <div>
+        <h3 class='subtitle mb-2'>Titre : {$tab["nom"]}</h3>
+        <p class='mb-3'>Description : {$tab["descr"]}</p>
+        </div>
+        <img src='/mywishlist/web/img/{$tab['img']}'/>
+        </div>";
+        $state=$item['etat'] == 0 ? 'Non réservé' : 'Réservé';
+        $div .= "<div class='item-list'>
+        <div class='item-desc'>
+            <p>Affilié à la liste : {$tab['liste_id']}, au tarif de {$tab['tarif']}</p>
+        </div>
+            <p>{$state}</p>
+        </div>";
+        $html = "$divTitle<div class='separate-line'></div>$div";
+        $this->titre = "Afficher item";
         return $html;
     }
 
@@ -74,6 +89,9 @@ FIN;
 
     public function render($select){
         switch($select){
+            case 0:
+                $content = $this->afficherItem();
+                break;
             case 1:
                 $content = $this->creerItem();
                 break;
