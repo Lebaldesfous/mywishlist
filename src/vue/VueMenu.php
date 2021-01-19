@@ -4,6 +4,34 @@ namespace mywishlist\vue;
 
 class VueMenu {
 
+    private static function getConnectButtons($container) {
+
+        $url_sign_up = $container->router->pathFor('inscription');
+        $url_sign_in = $container->router->pathFor('connexion');
+        $url_deconnect = $container->router->pathFor('deconnect');
+        $html = <<<END
+        <a class="button is-info" href=$url_sign_up>
+            <strong>S'inscrire</strong>
+        </a>
+        <a class="button is-light" href=$url_sign_in>
+            Se connecter
+        </a>
+END;
+
+
+        if (isset($_SESSION['user'])) {
+            $html = <<<END
+            <form action=$url_deconnect method="POST">
+                <a class="button is-info" onclick="this.parentNode.submit()">
+                    <strong>Déconnexion</strong>
+                </a>
+            </form>
+END;
+        }
+
+        return $html;
+    }
+
     /**
      * Fonction qui génère un template HTML avec le menu. Il doit être utiliser dans chaque fonction render() de chaque vue.
      * @param container l'objet container de la vue
@@ -12,6 +40,10 @@ class VueMenu {
      * @return string le contenu HTML de la page, avec le menu
      */
     public static function get($container, $content, $title): string {
+
+        session_start();
+
+        $connectButtons = VueMenu::getConnectButtons($container);
 
         $url_accueil    = $container->router->pathFor( 'racine'                 ) ;
         $url_listes     = $container->router->pathFor( 'aff_listes'             ) ;
@@ -23,8 +55,10 @@ class VueMenu {
 
         $url_logo = 'https://www.carrefour.fr/media/540x540/Photosite/BAZAR/PAPETERIE/3037929416015_PHOTOSITE_20191115_050759_0.jpg?placeholder=1';
 
-        $url_sign_up = $container->router->pathFor('inscription');
-        $url_sign_in = $container->router->pathFor('connexion');
+        $connectedMessage = "";
+        if (isset($_SESSION['user'])) {
+            $connectedMessage = "<p>Vous êtes connecté en tant que {$_SESSION['user']['login']}</p><br>";
+        }
 
         return <<<END
         <!DOCTYPE html>
@@ -86,12 +120,7 @@ class VueMenu {
                         <div class="navbar-end">
                             <div class="navbar-item">
                                 <div class="buttons">
-                                    <a class="button is-info" href=$url_sign_up>
-                                        <strong>S'inscrire</strong>
-                                    </a>
-                                    <a class="button is-light" href=$url_sign_in>
-                                        Se connecter
-                                    </a>
+                                    $connectButtons
                                 </div>
                             </div>
                         </div>
@@ -100,6 +129,7 @@ class VueMenu {
                 <h1 class="has-text-centered title mr-2 mt-3">$title</h1>
                 <hr>
                 <div class="notification is-white m-5 box">
+                    $connectedMessage
                     $content
                 </div>
             </body>

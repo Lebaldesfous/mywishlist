@@ -6,6 +6,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 use mywishlist\vue\VueConnexion;
+use mywishlist\models\User;
 
 class ControleurConnexion {
 
@@ -27,36 +28,45 @@ class ControleurConnexion {
 		return $res;
     }
 
+    public function deconnect(Request $rq, Response $res, $args) {
+        session_start();
+        unset($_SESSION['user']);
+		$redirect = $this->app->router->pathFor("racine");
+        return $res->withRedirect($redirect);
+    }
+
     public function inscription(Request $rq, Response $res, $args) {
 
         session_start();
-        $post = $rq->getParsedBody() ;
-        $login = filter_var($post['username'], FILTER_SANITIZE_STRING);
-        $password = filter_var($post['password'] , FILTER_SANITIZE_STRING);
-        $user = User::where('login','=',$login)->first();
-        if ($user != null) {
+        $login = filter_var($rq->getParsedBodyParam('username'), FILTER_SANITIZE_STRING);
+        $password = filter_var($rq->getParsedBodyParam('password') , FILTER_SANITIZE_STRING);
+        $user = User::all()->where('login','=',$login)->first();
+        if ($user == null) {
             $u = new User();
             $u->login=$login;
-            $u->password=password_hash($password, PASSWORD_DEFAULT);
+            $u->pass=password_hash($password, PASSWORD_DEFAULT);
             $u->save();
-            $_SESSION->user = $u;
+            $_SESSION['user'] = $u;
         }
-        return $res;
+        $redirect = $this->app->router->pathFor("racine");
+        return $res->withRedirect($redirect);
 
     }
 
     public function connexion(Request $rq, Response $res, $args) {
 
         session_start();
-        $post = $rq->getParsedBody() ;
-        $login = filter_var($post['username'], FILTER_SANITIZE_STRING);
-        $password = filter_var($post['password'] , FILTER_SANITIZE_STRING);
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-        $user = User::where('login', '=', $login)->where("password", "=", $hashedPassword)->first();
+        $login = filter_var($rq->getParsedBodyParam('username'), FILTER_SANITIZE_STRING);
+        $password = filter_var($rq->getParsedBodyParam('password') , FILTER_SANITIZE_STRING);
+        $user = User::all()->where('login', '=', $login)->first();
         if ($user != null) {
-            $_SESSION->user = $user;
+            if (password_verify($password, $user->pass)) {
+                unset($user->pass);
+                $_SESSION['user'] = $user;
+            }
         }
-        return $res;
+        $redirect = $this->app->router->pathFor("racine");
+        return $res->withRedirect($redirect);
 
     }
 
