@@ -23,7 +23,7 @@ class ControleurItem {
         $id=$args["id_item"];
         $item = item::find($id)->first();
 
-        $vue = new VueItem($item,$this->container);
+        $vue = new VueItem($item,$this->app);
         $rs->getBody()->write($vue->render(1)) ;
 
         return $rs;
