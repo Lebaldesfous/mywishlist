@@ -45,6 +45,7 @@ $app->get('/connexion',ControleurConnexion::class.':pageConnexion')->setName('pa
 $app->post('/inscription',ControleurConnexion::class.':inscription')->setName('inscription');
 $app->post('/connexion',ControleurConnexion::class.':connexion')->setName('connexion');
 
+
 $app->get('/nouvelitem',MonControleur::class.':formItem')->setName('formItem');
 $app->post('/nouvelitem',MonControleur::class.':newItem')->setName('newItem');
 

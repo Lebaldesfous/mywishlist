@@ -19,13 +19,19 @@ class VueListe
 
     private function afficherListe() {
         $tab=$this->tab[0];
-
         $divTitle = "<h3 class='subtitle mb-2'>Titre : {$tab["titre"]}</h3><p class='mb-3'>Description : {$tab["description"]}</p>";
         $li = "";
-        foreach($this->tab[1] as $item){
-            $li .= "<li>{$item['nom']}, {$item['descr']}, {$item['img']}</li>";
+        foreach($this->tab[1] as $item){    
+            $state=$item['etat'] == 0 ? 'Non réservé' : 'Réservé';
+            $li .= "<li class='item-list'>
+            <div class='item-desc'>
+                <img src='/mywishlist/web/img/{$item['img']}'/>
+                <p>{$item['nom']}, {$item['descr']}</p>
+            </div>
+                <p>{$state}</p>
+            </li>";
         }
-        $html = "$divTitle<ul>$li</ul>";
+        $html = "$divTitle<div class='separate-line'></div><ul>$li</ul>";
         $this->titre = "Afficher Liste";
         return $html;
     }

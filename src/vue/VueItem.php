@@ -33,6 +33,13 @@ FIN;
         return $html;
     }
 
+    private function afficherItem() {
+        $tab=$this->tab[0];
+        $html = "<div class='separate-line'>";
+        $this->titre = "Afficher Liste";
+        return $html;
+    }
+
     public function creerItem(){
         $url_new_item= $this->container->router->pathFor('creerItem',["uuid"=>$this->tab["uuid"]]);
         $html =<<<FIN

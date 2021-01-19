@@ -1,0 +1,31 @@
+.d-flex{
+    display: flex;
+}
+
+.justify-content-between{
+    justify-content: space-between;
+}
+
+.item-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.item-desc{
+    display: flex;
+    align-items: center;
+}
+
+.separate-line{
+    height: 1px;
+    width: 100%;
+    background: rgb(145, 145, 145);
+}
+
+.item-desc img{
+    width: 64px;
+    border-radius: 0.5rem;
+    margin-right: 1rem;
+}
