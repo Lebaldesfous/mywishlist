@@ -58,3 +58,52 @@ Pour mettre en place le projet, veuillez suivre **attentivement** les étapes ci
 6. Lancer XAMPP
 7. Rendez-vous sur [cet URL](http://localhost/mywishlist).
 8. Créez votre liste de souhaits !
+
+
+## 3. Fonctionnalités implémentées
+
+### 3.1 Participant
+
+1. [x] Afficher une liste de souhaits
+2. [x] Afficher un item d'une liste
+3. [x] Réserver un item
+4. [x] Ajouter un message avec sa réservation
+5. [x] Ajouter un message sur une liste
+
+### 3.2 Créateur
+
+6. [x] Créer une liste
+7. [x] Modifier les informations générales d'une de ses listes
+8. [x] Ajouter des items
+9. [x] Modifier un item
+10. [x] Supprimer un item
+11. [x] Rajouter une image à un item
+12. [x] Modifier une image d'un item
+13. [ ] Supprimer une image d'un item
+14. [x] Partager une liste
+15. [x] Consulter les réservations d'une de ses listes avant échéance
+16. [x] Consulter les réservations et messages d'une de ses listes après échéance
+
+### 3.3 Extensions
+
+17. [x] Créer un compte
+18. [x] S'authentifier
+19. [ ] Modifier son compte
+20. [ ] Rendre une liste publique
+21. [ ] Afficher les listes de souhaites publiques
+22. [ ] Créer une cagnotte
+23. [ ] Participer à une cagnotte
+24. [ ] Uploader une image
+25. [ ] Créer un compte participant
+26. [ ] Afficher la liste des créateurs
+27. [ ] Supprimer son compte
+28. [ ] Joindre des listes à son compte
+
+
+## 4. Déploiement
+
+Le site a été déployé, et il est disponible à [cette adresse][XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX].
+
+## 5. Répartition des tâches
+
+TODO
