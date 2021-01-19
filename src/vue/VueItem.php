@@ -43,7 +43,7 @@ FIN;
         </div>
         <img src='/mywishlist/web/img/{$tab['img']}'/>
         </div>";
-        $div .= "<div class='item-list'>
+        $div = "<div class='item-list'>
         <div class='item-desc'>
             <p>Affilié à la liste : {$tab['liste_id']}, au tarif de {$tab['tarif']}</p>
         </div>
