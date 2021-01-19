@@ -52,7 +52,16 @@ class ControleurItem {
     }
 
     public function reserverItem(Request $rq, Response $rs, $args){
-        
+        $post = $rq->getParsedBody();
+        $idliste = filter_var($args['id_liste'] , FILTER_SANITIZE_STRING);
+        $iditem= filter_var($args['id_item'] , FILTER_SANITIZE_STRING);
+        $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
+
+        $id_user = filter_var($post['iduser'], FILTER_SANITIZE_NUMBER_INT);
+        $item->iduser=$id_user;
+        $item->save();
+        $url_listes = $this->app->router->pathFor( 'racine' ) ;
+        return $rs->withRedirect($url_listes);
     }
 
     public function creerItem(Request $rq, Response $rs, $args){
