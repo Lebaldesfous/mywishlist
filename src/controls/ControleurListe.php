@@ -37,10 +37,14 @@ class ControleurListe
     }
 
     public function formCreer(Request $rq, Response $rs, $args){
-
-        $vue = new vueListe([],$this->container);
-        $rs->getBody()->write($vue->render(2));
-        return $rs;
+        if (is_null($_SESSION['user'])) {
+            $url_connexion= $this->app->router->pathFor('connexion');
+            return $rs->withRedirect($url_connexion);
+        }else {
+            $vue = new vueListe([], $this->container);
+            $rs->getBody()->write($vue->render(2));
+            return $rs;
+        }
     }
 
     public function creer(Request $rq, Response $rs, $args){
@@ -60,9 +64,14 @@ class ControleurListe
     }
 
     public function formModifierListe(Request $rq, Response $rs, $args){
-        $vue = new vueListe($args,$this->container);
-        $rs->getBody()->write($vue->render(3));
-        return $rs;
+        if (is_null($_SESSION['user'])) {
+            $url_connexion= $this->app->router->pathFor('connexion');
+            return $rs->withRedirect($url_connexion);
+        }else {
+            $vue = new vueListe($args, $this->container);
+            $rs->getBody()->write($vue->render(3));
+            return $rs;
+        }
     }
 
     public function modifierListe(Request $rq, Response $rs, $args){

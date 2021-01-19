@@ -45,7 +45,7 @@ END;
 
         $connectButtons = VueMenu::getConnectButtons($container);
 
-        $url_accueil    = $container->router->pathFor( 'racine'                 ) ;
+        $root    = $container->router->pathFor( 'racine'                 ) ;
         $url_listes     = $container->router->pathFor( 'aff_listes'             ) ;
         //$url_item_2     = $container->router->pathFor( 'aff_item' , ['id' => 2] ) ;
         $url_form_liste = $container->router->pathFor( 'formListe'              ) ;
@@ -70,12 +70,13 @@ END;
                 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
                 <link rel="stylesheet" href="/mywishlist/style/index.css">
                 <link rel="icon" type="image/png" href="$url_logo" />
-                <script src="/mywishlist/modules/navbar-mobile.js"></script>
+                <script src="$root/modules/navbar-mobile.js"></script>
+                <script src="$root/modules/setup.js"></script>
             </head>
             <body>
                 <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
                     <div class="navbar-brand">
-                        <a class="navbar-item" href="$url_accueil">
+                        <a class="navbar-item" href="$root">
                             <img src="$url_logo">
                         </a>
 
