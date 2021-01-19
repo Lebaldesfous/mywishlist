@@ -39,6 +39,7 @@ $app->get('/liste/{uuid}/item/{id_item}' , ControleurItem::class.':afficherItem'
 $app->delete('/liste/{uuid}/{id_item}/supprimer',ControleurItem::class.':supprimerItem')->setName('supprimerItem');
 
 
+
 $app->get('/nouvelitem',MonControleur::class.':formItem')->setName('formItem');
 $app->post('/nouvelitem',MonControleur::class.':newItem')->setName('newItem');
 
