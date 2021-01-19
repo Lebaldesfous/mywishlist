@@ -20,11 +20,12 @@ class VueListe
     private function afficherListe() {
         $tab=$this->tab[0];
 
-        $html = "{$tab["titre"]}, {$tab["description"]}";
+        $divTitle = "<h3 class='subtitle mb-2'>Titre : {$tab["titre"]}</h3><p class='mb-3'>Description : {$tab["description"]}</p>";
+        $li = "";
         foreach($this->tab[1] as $item){
-            $html .= "<li>{$item['nom']}, {$item['descr']}, {$item['img']}</li>";
+            $li .= "<li>{$item['nom']}, {$item['descr']}, {$item['img']}</li>";
         }
-        $html = "<ul>$html</ul>";
+        $html = "$divTitle<ul>$li</ul>";
         $this->titre = "Afficher Liste";
         return $html;
     }
