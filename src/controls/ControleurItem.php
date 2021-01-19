@@ -29,6 +29,7 @@ class ControleurItem {
     }
 
     public function formCreerItem(Request $rq, Response $rs, $args){
+        session_start();
         if (is_null($_SESSION['user'])) {
             $url_connexion= $this->app->router->pathFor('connexion');
             return $rs->withRedirect($url_connexion);
@@ -41,6 +42,7 @@ class ControleurItem {
     }
 
     public function formReserverItem(Request $rq, Response $rs, $args){
+        session_start();
         if(is_null($_SESSION['user'])){
             $url_connexion= $this->app->router->pathFor('connexion');
             return $rs->withRedirect($url_connexion);
@@ -108,7 +110,7 @@ class ControleurItem {
         $idliste = filter_var($args['id_liste'] , FILTER_SANITIZE_STRING);
         $iditem= filter_var($args['id_item'] , FILTER_SANITIZE_STRING);
         $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
-
+        session_start();
         if(is_null($item)){
             $rs->getBody()->write("l'item n'existe pas ");
             $url_accueil = $this->app->router->pathFor('racine');

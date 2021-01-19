@@ -18,7 +18,6 @@ class VueMenu {
         </a>
 END;
 
-
         if (isset($_SESSION['user'])) {
             $html = <<<END
             <form action=$url_deconnect method="POST">

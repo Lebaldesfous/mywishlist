@@ -35,13 +35,14 @@ FIN;
 
     private function afficherItem() {
         $tab=$this->tab;
+        $imgurl = substr($tab['img'], 0, 4) == "http" ? $tab['img'] : "/mywishlist/web/img/{$tab["img"]}";
         $divTitle = "
         <div class='item-title-desc'>
         <div>
         <h3 class='subtitle mb-2'>Titre : {$tab["nom"]}</h3>
         <p class='mb-3'>Description : {$tab["descr"]}</p>
         </div>
-        <img src='/mywishlist/web/img/{$tab['img']}'/>
+        <img src={$imgurl} />
         </div>";
         $div = "<div class='item-list'>
         <div class='item-desc'>

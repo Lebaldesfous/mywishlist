@@ -39,9 +39,10 @@ class VueListe
         foreach($this->tab[1] as $item){
             $url_res_item = $this->container->router->pathFor('aff_item', ["uuid"=>$this->tab[0]["no"], "id_item"=>$item["id"]]);
             $state=$item['etat'] == 0 ? 'Non réservé' : 'Réservé';
+            $imgurl = substr($item['img'], 0, 4) == "http" ? $item['img'] : "/mywishlist/web/img/{$item["img"]}";
             $li .= "<a class='item-list' href=$url_res_item>
             <div class='item-desc'>
-                <img src='/mywishlist/web/img/{$item['img']}'/>
+                <img src={$imgurl} />
                 <p>{$item['nom']}, {$item['descr']}</p>
             </div>
                 <p>{$state}</p>

@@ -32,7 +32,6 @@ class ControleurListe
 
         $vue = new VueListe($array,$this->container);
         $rs->getBody()->write($vue->render(1)) ;
-
         return $rs;
     }
 
@@ -45,8 +44,9 @@ class ControleurListe
 	}
 
     public function formCreer(Request $rq, Response $rs, $args){
+        session_start();
         if (is_null($_SESSION['user'])) {
-            $url_connexion= $this->app->router->pathFor('connexion');
+            $url_connexion= $this->container->router->pathFor('connexion');
             return $rs->withRedirect($url_connexion);
         }else {
             $vue = new vueListe([], $this->container);
@@ -72,6 +72,7 @@ class ControleurListe
     }
 
     public function formModifierListe(Request $rq, Response $rs, $args){
+        session_start();
         if (is_null($_SESSION['user'])) {
             $url_connexion= $this->app->router->pathFor('connexion');
             return $rs->withRedirect($url_connexion);
@@ -85,6 +86,7 @@ class ControleurListe
     public function modifierListe(Request $rq, Response $rs, $args){
         $token = $args['token'];
         $liste = Liste::all()->where("token","=",$token);
+        session_start();
         if(is_null($liste)){
             $rs->getBody()->write("Le token ne correspond à aucune liste");
             $url_accueil = $this->container->router->pathFor('racine');
