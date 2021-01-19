@@ -36,7 +36,7 @@ FIN;
         <form method="POST" action="$post">
             <label>Nom d'utilisateur:<br> <input type="text" name="username"/></label><br>
             <label>Mot de passe: <br><input type="password" name="password"/></label><br>
-            <button type="submit">S'inscrire</button>
+            <button type="submit">Se connecter</button>
         </form>	
 FIN;
         $this->titre="Connexion";
@@ -50,7 +50,7 @@ FIN;
                 $content = $this->inscription();
                 break;
             case 2:
-                $content=$this->connexion();
+                $content = $this->connexion();
                 break;
             default:
                 $content ='';
