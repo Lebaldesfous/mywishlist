@@ -52,6 +52,10 @@ class ControleurItem {
         }
     }
 
+    public function reserverItem(Request $rq, Response $rs, $args){
+        
+    }
+
     public function creerItem(Request $rq, Response $rs, $args){
         $post = $rq->getParsedBody();
         $idliste = filter_var($post['id_liste'] , FILTER_SANITIZE_STRING);

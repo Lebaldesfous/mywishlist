@@ -63,3 +63,13 @@ ALTER TABLE `user`
     ADD PRIMARY KEY (`id`);
 ALTER TABLE `user`
     MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+
+
+
+DROP TABLE IF EXISTS `reserver`;
+CREATE TABLE IF NOT EXISTS `reserver` (
+  `iduser` int(11) NOT NULL,
+  `iditem` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+COMMIT;
