@@ -19,6 +19,15 @@ class ControleurItem {
         $this->app = $app;
     }
 
+    public function afficherItem(Request $rq, Response $rs, $args){
+        $id=$args["id_item"];
+        $item = item::find($id)->first();
+
+        $vue = new VueItem($item,$this->container);
+        $rs->getBody()->write($vue->render(1)) ;
+
+        return $rs;
+    }
 
     public function formCreerItem(Request $rq, Response $rs, $args){
         if (session_status() == PHP_SESSION_NONE) {
