@@ -35,9 +35,9 @@ Nous avons structuré notre dépôt, de façon à ne pas être désorganisés.
 ### 2.1. Dépendances requises
 
 Pour lancer le projet, vous aurez besoin de
-- [PHP >= 7][https://www.php.net/downloads.php]
-- [Composer][https://getcomposer.org/download/]
-- [XAMPP][https://www.apachefriends.org/fr/download.html] ou autre logiciel analogue comme MAMP ou WAMP, qui fournit une base de données MySQL et un interpréteur de PHP côté serveur
+- [PHP >= 7](https://www.php.net/downloads.php)
+- [Composer](https://getcomposer.org/download/)
+- [XAMPP](https://www.apachefriends.org/fr/download.html) ou autre logiciel analogue comme MAMP ou WAMP, qui fournit une base de données MySQL et un interpréteur de PHP côté serveur
 
 ### 2.2. Mise en place
 
@@ -56,5 +56,5 @@ Pour mettre en place le projet, veuillez suivre **attentivement** les étapes ci
       2. Créez un lien symbolique entre votre dossier contenant l'application, et `/opt/lampp/htdocs` : `ln -s lienVersVotreDossierContenantLApplication ./mywishlist
 5. Créez votre votre base de données MySQL avec le contenu du fichier `src/conf/DATABASE.sql`.
 6. Lancer XAMPP
-7. Rendez-vous sur [cet URL][http://localhost/mywishlist].
+7. Rendez-vous sur [cet URL](http://localhost/mywishlist).
 8. Créez votre liste de souhaits !
