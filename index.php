@@ -56,4 +56,7 @@ $app->post('/nouveaulogin',MonControleur::class.':nouveaulogin')->setName('nouve
 $app->get('/testform',MonControleur::class.':testform')->setName('testform');
 $app->post('/testpass',MonControleur::class.':testpass')->setName('testpass');
 
+$app->get('/liste/{uuid}/{id_item}/reserver', ControleurItem::class.':formReserverItem')->setName('formReserverItem');
+$app->post('/liste/{uuid}/{id_item}/reserver', ControleurItem::class.':reserverItem')->setName('reserverItem');
+
 $app->run();
