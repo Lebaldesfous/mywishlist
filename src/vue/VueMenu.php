@@ -23,8 +23,8 @@ class VueMenu {
 
         $url_logo = 'https://www.carrefour.fr/media/540x540/Photosite/BAZAR/PAPETERIE/3037929416015_PHOTOSITE_20191115_050759_0.jpg?placeholder=1';
 
-        $url_sign_up = "#";
-        $url_sign_in = "#";
+        $url_sign_up = $container->router->pathFor('inscription');
+        $url_sign_in = $container->router->pathFor('connexion');
 
         return <<<END
         <!DOCTYPE html>

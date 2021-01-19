@@ -4,6 +4,7 @@ require 'vendor/autoload.php';
 use \mywishlist\controls\MonControleur;
 use \mywishlist\controls\ControleurListe;
 use \mywishlist\controls\ControleurItem;
+use \mywishlist\controls\ControleurConnexion;
 
 $config = ['settings' => [
 		'displayErrorDetails' => true
@@ -38,6 +39,11 @@ $app->get('/liste/{uuid}/item/{id_item}' , ControleurItem::class.':afficherItem'
 
 $app->delete('/liste/{uuid}/{id_item}/supprimer',ControleurItem::class.':supprimerItem')->setName('supprimerItem');
 
+$app->get('/inscription',ControleurConnexion::class.':pageInscription')->setName('pageInscription');
+$app->get('/connexion',ControleurConnexion::class.':pageConnexion')->setName('pageConnexion');
+
+$app->post('/inscription',ControleurConnexion::class.':inscription')->setName('inscription');
+$app->post('/connexion',ControleurConnexion::class.':connexion')->setName('connexion');
 
 
 $app->get('/nouvelitem',MonControleur::class.':formItem')->setName('formItem');
