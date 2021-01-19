@@ -50,6 +50,20 @@ FIN;
         return $html;
     }
 
+    public function reserverItem(){
+        $url_res_item = $this->container->router->pathFor('reserverItem', ["uuid"=>$this->tab["uuid"]]);
+        $html = <<<FIN
+                <form method = "POST" action = "$url_res_item">
+                <label> Nom participant: <br> <input type = "text" name = "nom"/></label>
+                <button type="submit" class="button is-link">Enregistrer l'item</button>
+</form>
+FIN;
+
+        $this->titre = "Reserver Item";
+        return $html;
+
+    }
+
 
     public function render($select){
         switch($select){
@@ -61,6 +75,9 @@ FIN;
                 break;
             case 3:
                 $content=$this->supprimerItem();
+                break;
+            case 4:
+                $content=$this->reserverItem();
                 break;
             default:
                 $content ='';
