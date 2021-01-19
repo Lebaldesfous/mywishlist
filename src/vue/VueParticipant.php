@@ -147,7 +147,7 @@ FIN;
     $content
   </body>
 </html>
-FIN;;	return $html;
+FIN;	return $html;
 	}
 
 }
