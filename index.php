@@ -55,14 +55,7 @@ $app->post('/deconnect',ControleurConnexion::class.':deconnect')->setName('decon
 
 $app->post('/profile/changePassword',ControleurProfil::class.':changerMotDePasse')->setName('changePassword');
 
-$app->get('/nouvelitem',MonControleur::class.':formItem')->setName('formItem');
-$app->post('/nouvelitem',MonControleur::class.':newItem')->setName('newItem');
 
-$app->get('/formlogin',MonControleur::class.':formLogin')->setName('formLogin');
-$app->post('/nouveaulogin',MonControleur::class.':nouveaulogin')->setName('nouveaulogin');
-
-$app->get('/testform',MonControleur::class.':testform')->setName('testform');
-$app->post('/testpass',MonControleur::class.':testpass')->setName('testpass');
 
 $app->get('/liste/{uuid}/{id_item}/reserver', ControleurItem::class.':formReserverItem')->setName('formReserverItem');
 $app->post('/liste/{uuid}/{id_item}/reserver', ControleurItem::class.':reserverItem')->setName('reserverItem');
