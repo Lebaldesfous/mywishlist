@@ -10,11 +10,12 @@ class VueListe
     private $tab; // tab array PHP
     private $container;
     private $titre="";
+    private $root;
 
     public function __construct($tab,$container) {
         $this->tab = $tab;
         $this->container=$container;
-
+        $this->root=$container->router->pathFor('racine') ;
     }
 
     private function afficherListes() {
@@ -39,7 +40,7 @@ class VueListe
         foreach($this->tab[1] as $item){
             $url_res_item = $this->container->router->pathFor('aff_item', ["uuid"=>$this->tab[0]["no"], "id_item"=>$item["id"]]);
             $state=$item['etat'] == 0 ? 'Non réservé' : 'Réservé';
-            $imgurl = substr($item['img'], 0, 4) == "http" ? $item['img'] : "/mywishlist/web/img/{$item["img"]}";
+            $imgurl = substr($item['img'], 0, 4) == "http" ? $item['img'] : "{$this->root}web/img/{$item["img"]}";
             $li .= "<a class='item-list' href=$url_res_item>
             <div class='item-desc'>
                 <img src={$imgurl} />

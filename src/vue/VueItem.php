@@ -10,11 +10,12 @@ class VueItem
     private $tab; // tab array PHP
     private $container;
     private $titre="";
+    private $root;
 
     public function __construct($tab,$container) {
         $this->tab = $tab;
         $this->container=$container;
-
+        $this->root=$container->router->pathFor('racine') ;
     }
 
     public function modifierItem(){
@@ -35,7 +36,7 @@ FIN;
 
     private function afficherItem() {
         $tab=$this->tab;
-        $imgurl = substr($tab['img'], 0, 4) == "http" ? $tab['img'] : "/mywishlist/web/img/{$tab["img"]}";
+        $imgurl = substr($tab['img'], 0, 4) == "http" ? $tab['img'] : "{$this->root}web/img/{$tab["img"]}";
         $divTitle = "
         <div class='item-title-desc'>
         <div>
