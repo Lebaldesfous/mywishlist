@@ -84,15 +84,15 @@ Pour mettre en place le projet, veuillez suivre **attentivement** les étapes ci
 13. [ ] Supprimer une image d'un item
 14. [x] Partager une liste
 15. [x] Consulter les réservations d'une de ses listes avant échéance
-16. [x] Consulter les réservations et messages d'une de ses listes après échéance
+16. [ ] Consulter les réservations et messages d'une de ses listes après échéance
 
 ### 3.3 Extensions
 
 17. [x] Créer un compte
 18. [x] S'authentifier
 19. [x] Modifier son compte
-20. [ ] Rendre une liste publique
-21. [ ] Afficher les listes de souhaites publiques
+20. [x] Rendre une liste publique
+21. [x] Afficher les listes de souhaits publiques
 22. [ ] Créer une cagnotte
 23. [ ] Participer à une cagnotte
 24. [ ] Uploader une image

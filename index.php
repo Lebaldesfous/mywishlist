@@ -23,6 +23,8 @@ $app->get('/listes'    , ControleurListe::class.':getListesPublique')->setName('
 $app->get("/liste/creer",ControleurListe::class.":formCreer")->setName("formListe");
 $app->post("/liste/creer",ControleurListe::class.":creer")->setName("creerListe");
 
+$app->get("/liste/{uuid}/partage", ControleurListe::class.":partage")->setName('partageListe');
+
 
 #$app->get('/liste/{token}/modifier',ControleurListe::class.':formModifierListe')->setName('formModifierListe');
 #$app->post("/liste/{token}/modifier",ControleurListe::class.':modifierListe')->setName('modifierListe');

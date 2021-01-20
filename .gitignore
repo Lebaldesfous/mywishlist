@@ -5,4 +5,4 @@
 
 composer.lock
 vendor/
-/src/conf/conf.ini
+src/conf/conf.ini
