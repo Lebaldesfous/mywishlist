@@ -97,18 +97,13 @@ FIN;
     }
 
     private function partagerListe(){
-        $li = "";
-        foreach($this->tab as $liste){
-            $li .= "<div class='item-list'>
-                <p>{$liste['titre']}</p>
-                <p>{$liste['description']}</p>
-                <p>{$liste['expiration']}</p>
-            </div>
-            <div class='separate-line bg-blue w-15'></div>";
-        }
-        $html = "<div class='separate-line'></div><ul>$li</ul>";
-        $this->titre = "Afficher listes";
-        return $html;
+        $url_liste= $this->container->router->pathFor("aff_liste", ["uuid"=>$this->tab["uuid"]]);
+        $url=$_SERVER['HTTP_HOST'];
+        $url.=$_SERVER['REQUEST_URI'];
+        $url=substr($url, 0, -8);
+        $div = "<div class='share-link'><label>Lien de la liste:<br><input type='url' name='link' value={$url} class='w-100' /></label><br><a class='button is-primary mt-3' href={$url_liste}>Accéder à la soirée</a></div>";
+        $this->titre = "Partager liste";
+        return $div;
     }
 
     private function rechercherListe(){
@@ -141,6 +136,9 @@ FIN;
                 break;
             case(4):
                 $content=$this->modifierListe();
+                break;
+            case(5):
+                $content=$this->partagerListe();
                 break;
             default:
                 $content='';
