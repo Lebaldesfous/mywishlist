@@ -95,6 +95,7 @@ FIN;
         $html = <<<FIN
                 <form method = "POST" action = "$url_res_item">
                 <label> Nom participant: <br> <input type = "text" name = "nom"/></label>
+                <label>Message: <br><textarea type="text" name="message" rows="5" cols="33"></textarea></label><br>
                 <button type="submit" class="button is-link">Enregistrer l'item</button>
 </form>
 FIN;
