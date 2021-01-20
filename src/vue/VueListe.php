@@ -103,6 +103,18 @@ FIN;
         return $div;
     }
 
+    private function rechercherListe(){
+        $url_token= $this->container->router->pathFor("rechercher");
+        $html=<<<FIN
+<form method="POST" action="$url_modifier_liste">
+    <label>Token de la liste:<br> <input type="text" name="token"/></label><br>
+	<button type="submit">Rechercher</button>
+</form>	
+FIN;
+        $this->titre = "Rechercher une liste";
+        return $html;
+    }
+
 
     public function render( $select ) {
 
@@ -120,6 +132,9 @@ FIN;
                 $content=$this->modifierListe();
                 break;
             case(4):
+                $content=$this->modifierListe();
+                break;
+            case(5):
                 $content=$this->partagerListe();
                 break;
             default:

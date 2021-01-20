@@ -66,6 +66,12 @@ class ControleurListe
         }
     }
 
+    public function formRechercher(Request $rq, Response $rs, $args) {
+        $vue = new VueListe([],$this->container);
+        $rs->getBody()->write($vue->render(4));
+        return $rs;
+    }
+
     public function creer(Request $rq, Response $rs, $args){
         session_start();
         if(!isset($_SESSION['user'])){
@@ -166,4 +172,10 @@ class ControleurListe
             return $rs;
         }
 
+
+        public function rechercher(Request $rq, Response $rs, $args){
+            $post =$rq->getParsedBody();
+            $url_liste=$this->container->router->pathFor('aff_liste',["uuid"=>$post['token']]);
+            return $rs->withRedirect($url_liste);
+        }
 }
