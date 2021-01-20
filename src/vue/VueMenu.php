@@ -70,11 +70,6 @@ END;
 
         $url_logo = 'https://www.carrefour.fr/media/540x540/Photosite/BAZAR/PAPETERIE/3037929416015_PHOTOSITE_20191115_050759_0.jpg?placeholder=1';
 
-        $connectedMessage = "";
-        if (isset($_SESSION['user'])) {
-            $connectedMessage = "<p>Vous êtes connecté en tant que {$_SESSION['user']['login']}</p><br>";
-        }
-
         return <<<END
         <!DOCTYPE html>
         <html>
@@ -143,7 +138,6 @@ END;
                 <h1 class="has-text-centered title mr-2 mt-3">$title</h1>
                 <hr>
                 <div class="notification is-white m-5 box">
-                    $connectedMessage
                     $content
                 </div>
             </body>
