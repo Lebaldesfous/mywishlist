@@ -91,6 +91,7 @@ class ControleurItem {
         if($item->iduser == NULL){
             $item->iduser=$id_user;
             $item->message=$message;
+            $item->etat=1;
             $item->save();
             $url_liste = $this->app->router->pathFor( 'aff_liste',["uuid"=>$token] ) ;
             return $rs->withRedirect($url_liste);
