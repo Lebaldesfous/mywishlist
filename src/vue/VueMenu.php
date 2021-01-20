@@ -66,7 +66,7 @@ END;
         $url_form_liste = $container->router->pathFor( 'formListe'              ) ;
         $url_form_item = $container->router->pathFor( 'formToken') ;
         $url_form_modif_list = $container->router->pathFor('formModifierListe');
-        $url_listes_rechercher = $container->router->pathFor('formToken');
+        $url_listes_rechercher = $container->router->pathFor('formRechercher');
 
         $url_logo = 'https://www.carrefour.fr/media/540x540/Photosite/BAZAR/PAPETERIE/3037929416015_PHOTOSITE_20191115_050759_0.jpg?placeholder=1';
 
