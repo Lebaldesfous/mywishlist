@@ -86,7 +86,7 @@ class ControleurItem {
         $liste=Liste::all()->where("token","=",$token)->first();
         $item = Item::all()->where("id","=",$iditem,"liste_id","=",$liste->no)->first();
         $message = filter_var($post["message"],FILTER_SANITIZE_STRING);
-        $id_user = filter_var($post['iduser'], FILTER_SANITIZE_NUMBER_INT);
+        $id_user = $_SESSION['user']['id'];
         if($item->iduser == NULL){
             $item->iduser=$id_user;
             $item->message=$message;
