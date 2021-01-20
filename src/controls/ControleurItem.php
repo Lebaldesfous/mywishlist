@@ -74,7 +74,7 @@ class ControleurItem {
             return $rs->withRedirect($url_connexion);
         }else{
             $vue = new VueItem($args,$this->app);
-            $rs->getBody()->write($vue->render(1));
+            $rs->getBody()->write($vue->render(4));
             return $rs;
         }
     }

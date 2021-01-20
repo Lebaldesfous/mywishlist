@@ -28,14 +28,19 @@ class ControleurListe
 
 
     public function getListe(Request $rq, Response $rs, $args) {
+        session_start();
         $liste = Liste::all()->where("token","=",$args["uuid"])->first();
         $id=$liste->no;
         if (is_null($liste)) {
             $url= $this->container->router->pathFor('racine');
             return $rs->withRedirect($url);
         }
+        $admin=false;
+        if (!is_null($_SESSION['user'])) {
+            $admin=$_SESSION['user']['id'] == $liste->user_id ? true : false;
+        }
         $items = Item::all()->where("liste_id","=",$id);
-        $array = array($liste,$items,'admin'=>true);
+        $array = array($liste,$items,'admin'=>$admin);
         $vue = new VueListe($array,$this->container);
         $rs->getBody()->write($vue->render(1)) ;
         return $rs;
@@ -129,6 +134,34 @@ class ControleurListe
                 $liste->save();
                 $url_listes = $this->container->router->pathFor('aff_liste', ["uuid" => $liste->token]);
                 return $rs->withRedirect($url_listes);
+            }
+        }
+    }
+
+    public function supprimerListe(Request $rq, Response $rs, $args){
+        session_start();
+        if(!isset($_SESSION['user'])){
+            $url_connexion= $this->container->router->pathFor('connexion');
+            return $rs->withRedirect($url_connexion);
+        }else {
+            $token = $args['token'];
+            $liste = Liste::all()->where("token", "=", $token);
+            session_start();
+            if (is_null($liste)) {
+                $rs->getBody()->write("Le token ne correspond à aucune liste");
+                $url_accueil = $this->container->router->pathFor('racine');
+                return $rs->withRedirect($url_accueil);
+            } else {
+                if (is_null($liste)) {
+                    $rs->getBody()->write("La liste n'existe pas ");
+                    $url_accueil = $this->app->router->pathFor('racine');
+                    return $rs->withRedirect($url_accueil);
+                } else {
+                    $liste->delete();
+                    $url_accueil = $this->app->router->pathFor('racine');
+                    return $rs->withRedirect($url_accueil);
+                }
+
             }
         }
     }

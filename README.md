@@ -22,8 +22,8 @@ Nous avons structuré notre dépôt, de façon à ne pas être désorganisés.
         * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> models : contient les modèles, le coeur de l'application
         * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> vue : contient toutes les différentes vues de l'application
     * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> web : répertoire contenant les fichiers statiques
-    * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> styles : répertoire contenant les styles CSS additionnels
         * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> img : Répertoire contenant les images
+    * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> styles : répertoire contenant les styles CSS additionnels
     - <img src="https://i.pinimg.com/originals/7f/d2/e4/7fd2e46b2da9819e667fb75caf475cf7.png" alt="fichier " width="18"/> .gitignore : fichier contenant les données (répertoires ou fichiers) qui ne doivent pas être suivis par git
     - <img src="https://i.pinimg.com/originals/7f/d2/e4/7fd2e46b2da9819e667fb75caf475cf7.png" alt="fichier " width="18"/> .htaccess : fichier de configuration d'Apache pour effectuer correctement les redirections
     - <img src="https://i.pinimg.com/originals/7f/d2/e4/7fd2e46b2da9819e667fb75caf475cf7.png" alt="fichier " width="18"/> composer.json : fichier d'installation des dépendances PHP nécessaires au projet
@@ -108,7 +108,7 @@ Le site a été déployé, et il est disponible à [cette adresse][SITE].
 
 ## 5. Ce qui a été fait
 
-### 5.1. Théo CHAPELLE
+### 5.1. Théo CHAPELLE (@BlessedRaccoon)
 
 - Extension 17
 - Extension 18
@@ -118,7 +118,7 @@ Le site a été déployé, et il est disponible à [cette adresse][SITE].
 - Implémentation Javascript pour un menu responsive
 - Création d'une classe utilitaire pour gérer la génération efficace des pages
 
-### 5.2. Matis CHASTIN
+### 5.2. Matis CHASTIN (@chastin3u)
 
 - Fonctionnalité 1 affichage liste
 - Fonctionnalité 2 affinage de l'affichage item
@@ -126,14 +126,16 @@ Le site a été déployé, et il est disponible à [cette adresse][SITE].
 - Ajout du css pour diverses pages
 - Fonctionnalité 20
 
-### 5.3. Guillaume HUET
+### 5.3. Guillaume HUET (@lebaldesfous)
+
 - Fonctionnalité 6 Créer une liste
 - Fonctionnalité 7 Modifier les informations générales d'une de ses listes
 - Fonctionnalité 8 Ajouter des items
 - Fonctionnalité 9 Modifier un item
 - Fonctionnalité 10 Supprimer un item
 - Création des vues 
-### 5.4. Darius KIAÏE
+
+### 5.4. Darius KIAÏE (@kiaie2u)
 
 - Fonctionnalité 3 pour la réservation d'un item
 - Fonctionnalité 11 pour l'ajout d'une image à un item
