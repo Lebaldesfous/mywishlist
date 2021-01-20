@@ -83,6 +83,10 @@ FIN;
         return $html;
     }
 
+    private function supprimerListe(){
+
+    }
+
     public function render( $select ) {
 
         switch ($select) {

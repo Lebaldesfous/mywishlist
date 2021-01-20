@@ -127,5 +127,33 @@ class ControleurListe
         }
     }
 
+    public function supprimerListe(Request $rq, Response $rs, $args){
+        session_start();
+        if(!isset($_SESSION['user'])){
+            $url_connexion= $this->container->router->pathFor('connexion');
+            return $rs->withRedirect($url_connexion);
+        }else {
+            $token = $args['token'];
+            $liste = Liste::all()->where("token", "=", $token);
+            session_start();
+            if (is_null($liste)) {
+                $rs->getBody()->write("Le token ne correspond à aucune liste");
+                $url_accueil = $this->container->router->pathFor('racine');
+                return $rs->withRedirect($url_accueil);
+            } else {
+                if (is_null($liste)) {
+                    $rs->getBody()->write("La liste n'existe pas ");
+                    $url_accueil = $this->app->router->pathFor('racine');
+                    return $rs->withRedirect($url_accueil);
+                } else {
+                    $liste->delete();
+                    $url_accueil = $this->app->router->pathFor('racine');
+                    return $rs->withRedirect($url_accueil);
+                }
+
+            }
+        }
+    }
+
 
 }
