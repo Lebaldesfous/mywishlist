@@ -70,7 +70,6 @@ FIN;
     }
 
     private function modifierListe(){
-        $token =$this->tab["token"];
         $url_modifier_liste= $this->container->router->pathFor("modifierListe");
         $html=<<<FIN
 <form method="POST" action="$url_modifier_liste">

@@ -59,7 +59,7 @@ FIN;
         </div>";
         $div = "<div class='item-list'>
         <div class='item-desc'>
-            <p>Affilié à la liste : {$tab['liste_id']}, au tarif de {$tab['tarif']}</p>
+            <p>Affilié à la liste : {$tab['liste_id']} et au tarif de {$tab['tarif']} €</p>
         </div>
         </div>";
         $html = "$divTitle<div class='separate-line'></div>$div";
