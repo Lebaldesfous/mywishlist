@@ -126,7 +126,12 @@ Le site a été déployé, et il est disponible à [cette adresse][SITE].
 - Ajout du css pour diverses pages
 
 ### 5.3. Guillaume HUET
-
+- Fonctionnalité 6 Créer une liste
+- Fonctionnalité 7 Modifier les informations générales d'une de ses listes
+- Fonctionnalité 8 Ajouter des items
+- Fonctionnalité 9 Modifier un item
+- Fonctionnalité 10 Supprimer un item
+- Création des vues 
 ### 5.4. Darius KIAÏE
 
 - Fonctionnalité 3 pour la réservation d'un item
