@@ -47,7 +47,8 @@ class VueListe
                 <p>{$item['nom']}, {$item['descr']}</p>
             </div>
                 <p>{$state}</p>
-            </a>";
+            </a>
+             <button class='button is-warning' type='submit'>Supprimer</button>";
         }
         $html = "$divTitle<div class='separate-line'></div><ul>$li</ul>";
         $this->titre = "Afficher liste";
@@ -83,10 +84,6 @@ FIN;
 FIN;
         $this->titre="Modifier Liste";
         return $html;
-    }
-
-    private function supprimerListe(){
-
     }
 
     public function render( $select ) {
