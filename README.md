@@ -120,6 +120,11 @@ Le site a été déployé, et il est disponible à [cette adresse][SITE].
 
 ### 5.2. Matis CHASTIN
 
+- Fonctionnalité 1 affichage liste
+- Fonctionnalité 2 affinage de l'affichage item
+- Corrections de bugs
+- Ajout du css pour diverses pages
+
 ### 5.3. Guillaume HUET
 
 ### 5.4. Darius KIAÏE
