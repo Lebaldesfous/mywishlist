@@ -34,6 +34,7 @@ $app->get('/liste/{uuid}', ControleurListe::class.':getListe' )->setName('aff_li
 
 $app->get("/liste/{uuid}/creer",ControleurItem::class.":formCreerItem")->setName("formItem");
 $app->post("/liste/{uuid}/creer",ControleurItem::class.":creerItem")->setName("creerItem");
+$app->post("/liste/{uuid}/supprimer",ControleurListe::class.":supprimerListe")->setName("supprimerListe");
 
 $app->get("/liste/{uuid}/{id_item}/modifier",ControleurItem::class.":formModifierItem")->setName("formModifierItem");
 $app->post("/liste/{uuid}/{id_item}/modifier",ControleurItem::class.":modifierItem")->setName("modifierItem");

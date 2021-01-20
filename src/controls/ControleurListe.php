@@ -144,27 +144,22 @@ class ControleurListe
             $url_connexion= $this->container->router->pathFor('connexion');
             return $rs->withRedirect($url_connexion);
         }else {
-            $token = $args['token'];
-            $liste = Liste::all()->where("token", "=", $token);
-            session_start();
+            $token = $args['uuid'];
+            $liste = Liste::all()->where("token", "=", $token)->first();
+
             if (is_null($liste)) {
                 $rs->getBody()->write("Le token ne correspond à aucune liste");
                 $url_accueil = $this->container->router->pathFor('racine');
                 return $rs->withRedirect($url_accueil);
             } else {
-                if (is_null($liste)) {
-                    $rs->getBody()->write("La liste n'existe pas ");
-                    $url_accueil = $this->app->router->pathFor('racine');
-                    return $rs->withRedirect($url_accueil);
-                } else {
                     $liste->delete();
-                    $url_accueil = $this->app->router->pathFor('racine');
+                    $url_accueil = $this->container->router->pathFor('racine');
                     return $rs->withRedirect($url_accueil);
                 }
 
             }
         }
-    }
+
 
 
 }
