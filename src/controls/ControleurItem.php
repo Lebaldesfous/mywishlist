@@ -80,12 +80,14 @@ class ControleurItem {
     }
 
     public function reserverItem(Request $rq, Response $rs, $args){
+        session_start();
         $post = $rq->getParsedBody();
-        $idliste = filter_var($args['id_liste'] , FILTER_SANITIZE_STRING);
+        $token = filter_var($args['uuid'] , FILTER_SANITIZE_STRING);
         $iditem= filter_var($args['id_item'] , FILTER_SANITIZE_STRING);
-        $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
+        $liste=Liste::all()->where("token","=",$token)->first();
+        $item = Item::all()->where("id","=",$iditem,"liste_id","=",$liste->no)->first();
         $message = filter_var($post["message"],FILTER_SANITIZE_STRING);
-        $id_user = filter_var($post['iduser'], FILTER_SANITIZE_NUMBER_INT);
+        $id_user = $_SESSION['user']['id'];
         if($item->iduser == NULL){
             $item->iduser=$id_user;
             $item->message=$message;

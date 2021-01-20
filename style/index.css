@@ -70,3 +70,8 @@ a, a:hover, a:focus{
 .w-15{
     width: 15%;
 }
+
+.reserve-item{
+    display: flex;
+    align-items: center;
+}
