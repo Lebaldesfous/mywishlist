@@ -64,7 +64,7 @@ END;
         $url_listes     = $container->router->pathFor( 'aff_listes'             ) ;
         //$url_item_2     = $container->router->pathFor( 'aff_item' , ['id' => 2] ) ;
         $url_form_liste = $container->router->pathFor( 'formListe'              ) ;
-        $url_form_item = $container->router->pathFor( 'formItem' ,["uuid"=>'e35b86c734f614e2']) ;
+        $url_form_item = $container->router->pathFor( 'formToken') ;
         $url_form_login = $container->router->pathFor('formLogin');
         $url_test_login= $container->router->pathFor('testform');
         $url_listes_rechercher = "#"; // $container->router->pathFor('formToken');

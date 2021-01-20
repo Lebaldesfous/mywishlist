@@ -35,7 +35,7 @@ class VueListe
 
     private function afficherListe() {
         $tab=$this->tab[0];
-        $divTitle = "<h3 class='subtitle mb-2'>Titre : {$tab["titre"]}</h3><p class='mb-3'>Description : {$tab["description"]}</p>";
+        $divTitle = "<h3 class='subtitle mb-2'>Titre : {$tab["titre"]}</h3><p class='mb-3'>Description : {$tab["description"]}</p><br><p>Voici le token de modification de la liste : {$tab["token"]}</p>";
         $li = "";
         foreach($this->tab[1] as $item){
             $url_res_item = $this->container->router->pathFor('aff_item', ["uuid"=>$this->tab[0]["no"], "id_item"=>$item["id"]]);
