@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `url` text,
   `tarif` decimal(5,2) DEFAULT NULL,
   `etat` tinyint(1) DEFAULT '0',
-  `iduser` int(11) NOT NULL,
+  `iduser` int(11),
   `message` varchar(100),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
