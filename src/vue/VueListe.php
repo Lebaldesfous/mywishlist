@@ -49,9 +49,6 @@ class VueListe
             </div>
             <div class='div-reservation'>
                 <p>{$state}</p>
-
-            </a>
-
                 <form action={$url_res_item}>
                     <input class='button is-primary ml-3' type='submit' value='Réservation' />
                 </form>
@@ -95,6 +92,22 @@ FIN;
         $this->titre="Modifier Liste";
         return $html;
     }
+
+    private function partagerListe(){
+        $li = "";
+        foreach($this->tab as $liste){
+            $li .= "<div class='item-list'>
+                <p>{$liste['titre']}</p>
+                <p>{$liste['description']}</p>
+                <p>{$liste['expiration']}</p>
+            </div>
+            <div class='separate-line bg-blue w-15'></div>";
+        }
+        $html = "<div class='separate-line'></div><ul>$li</ul>";
+        $this->titre = "Afficher listes";
+        return $html;
+    }
+
 
     public function render( $select ) {
 

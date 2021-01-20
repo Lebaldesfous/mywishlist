@@ -80,6 +80,7 @@ class ControleurItem {
     }
 
     public function reserverItem(Request $rq, Response $rs, $args){
+        session_start();
         $post = $rq->getParsedBody();
         $token = filter_var($args['uuid'] , FILTER_SANITIZE_STRING);
         $iditem= filter_var($args['id_item'] , FILTER_SANITIZE_STRING);
@@ -90,9 +91,10 @@ class ControleurItem {
         if($item->iduser == NULL){
             $item->iduser=$id_user;
             $item->message=$message;
+            $item->etat=1;
             $item->save();
-            $url_listes = $this->app->router->pathFor( 'racine' ) ;
-            return $rs->withRedirect($url_listes);
+            $url_liste = $this->app->router->pathFor( 'aff_liste',["uuid"=>$token] ) ;
+            return $rs->withRedirect($url_liste);
         }else{
             $rs->getBody()->write(VueMenu::get($this->app,"L'item a déjà été réservé","Erreur Réservation"));
             return $rs;
