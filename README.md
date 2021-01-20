@@ -134,6 +134,7 @@ Le site a été déployé, et il est disponible à [cette adresse][SITE].
 - Fonctionnalité 8 Ajouter des items
 - Fonctionnalité 9 Modifier un item
 - Fonctionnalité 10 Supprimer un item
+- Fonction rechercher une liste à partir d'un token
 - Création des vues 
 
 ### 5.4. Darius KIAÏE (@kiaie2u)
