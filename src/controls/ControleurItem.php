@@ -119,8 +119,8 @@ class ControleurItem {
                 $item->img = $url_image;
                 $item->iduser=$_SESSION['user']['id'];
                 $item->save();
-                $url_listes = $this->app->router->pathFor('racine');
-                return $rs->withRedirect($url_listes);
+                $url_token = $this->app->router->pathFor('aff_token');
+                return $rs->withRedirect($url_token);
             }
         }
     }

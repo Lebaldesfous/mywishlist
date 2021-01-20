@@ -28,11 +28,10 @@ class ControleurListe
 
 
     public function getListe(Request $rq, Response $rs, $args) {
-        $liste = Liste::find($args)->first();
-        $id=$args["uuid"];
+        $liste = Liste::all()->where("token","=",$args["uuid"])->first();
+        $id=$liste->no;
         $items = Item::all()->where("liste_id","=",$id);
         $array = array($liste,$items);
-
         $vue = new VueListe($array,$this->container);
         $rs->getBody()->write($vue->render(1)) ;
         return $rs;
@@ -74,8 +73,10 @@ class ControleurListe
             $l->expiration=$date;
             $bytes = random_bytes(8);
             $l->token = bin2hex($bytes);
+            $l->user_id=$_SESSION['user']['id'];
             $l->save();
             $l=Liste::all()->where("titre","=",$titre,"description","=",$description,"expiration","=",$date,"user_id","=",$_SESSION['user']['id'])->first();
+            var_dump($l);
             $url_liste = $this->container->router->pathFor( 'aff_liste',["uuid"=>$l->token] ) ;
             return $rs->withRedirect($url_liste);
         }
