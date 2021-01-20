@@ -125,7 +125,8 @@ class ControleurItem {
                 $item->img = $url_image;
                 $item->iduser=$_SESSION['user']['id'];
                 $item->save();
-                $url_token = $this->app->router->pathFor('aff_token');
+                $item = Item::all()->where("nom","=",$nom,"liste_id","=",$liste->no,"descr","=",$description)->first();
+                $url_token = $this->app->router->pathFor('aff_item',["uuid"=>$token,"id_item"=>$item->id]);
                 return $rs->withRedirect($url_token);
             }
         }
