@@ -19,6 +19,13 @@
     align-items: center;
 }
 
+.item-desc-aff{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .separate-line{
     height: 1px;
     width: 100%;

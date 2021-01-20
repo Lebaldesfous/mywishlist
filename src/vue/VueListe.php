@@ -18,7 +18,7 @@ class VueListe
         $this->root=$container->router->pathFor('racine') ;
     }
 
-    private function afficherListes() {
+    private function afficherListesPubliques() {
         $li = "";
         foreach($this->tab as $liste){
             $li .= "<div class='item-list'>
@@ -38,7 +38,7 @@ class VueListe
         $divTitle = "<h3 class='subtitle mb-2'>Titre : {$tab["titre"]}</h3><p class='mb-3'>Description : {$tab["description"]}</p><br><p>Voici le token de modification de la liste : {$tab["token"]}</p>";
         $li = "";
         foreach($this->tab[1] as $item){
-            $url_res_item = $this->container->router->pathFor('aff_item', ["uuid"=>$this->tab[0]["no"], "id_item"=>$item["id"]]);
+            $url_res_item = $this->container->router->pathFor('aff_item', ["uuid"=>$this->tab[0]["token"], "id_item"=>$item["id"]]);
             $state=$item['etat'] == 0 ? 'Non réservé' : 'Réservé';
             $imgurl = substr($item['img'], 0, 4) == "http" ? $item['img'] : "{$this->root}web/img/{$item["img"]}";
             $li .= "<a class='item-list' href=$url_res_item>
@@ -59,8 +59,9 @@ class VueListe
         $html=<<<FIN
 <form method="POST" action="$url_new_liste">
 	<label>Titre:<br> <input type="text" name="titre"/></label><br>
-	<label>Description: <br><input type="text" name="description"/></label><br>
-	<Label>Date d'expiration:<br><input type="date" name="dateexp"/> </Label><br>
+	<label>Description: <br><textarea type="text" name="description" rows="5" cols="33"></textarea></label><br>
+    <Label>Date d'expiration:<br><input type="date" name="dateexp"/></Label><br>
+    <Label>Rendre publique:<br><input type="checkbox" name="isPublic" value="1"/></Label><br>
 	<button type="submit">Enregistrer la liste</button>
 </form>	
 FIN;
@@ -69,13 +70,14 @@ FIN;
     }
 
     private function modifierListe(){
-        $token =$this->tab["token"];
-        $url_modifier_liste= $this->container->router->pathFor("modifierListe",["token"=>$token]);
+        $url_modifier_liste= $this->container->router->pathFor("modifierListe");
         $html=<<<FIN
 <form method="POST" action="$url_modifier_liste">
+    <label>Token de la liste:<br> <input type="text" name="token"/></label><br>
 	<label>Titre:<br> <input type="text" name="titre"/></label><br>
-	<label>Description: <br><input type="text" name="description"/></label><br>
-	<Label>Date d'expiration:<br><input type="date" name="dateexp"/> </Label><br>
+	<label>Description: <br><textarea type="text" name="description" rows="5" cols="33"></textarea></label><br>
+    <Label>Date d'expiration:<br><input type="date" name="dateexp"/></Label><br>
+    <Label>Rendre publique:<br><input type="checkbox" name="isPublic" value="1"/></Label><br>
 	<button type="submit">Modifier la liste</button>
 </form>	
 FIN;
@@ -91,7 +93,7 @@ FIN;
 
         switch ($select) {
             case(0):
-                $content=$this->afficherListes();
+                $content=$this->afficherListesPubliques();
                 break;
             case(1):
                 $content=$this->afficherListe();

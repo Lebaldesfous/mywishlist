@@ -18,14 +18,16 @@ $container = new \Slim\Container($config);
 $app = new \Slim\App($container);
 
 $app->get('/'          , ControleurListe::class.':accueil'       )->setName('racine'    );
-$app->get('/listes'    , ControleurListe::class.':afficherListes')->setName('aff_listes');
+$app->get('/listes'    , ControleurListe::class.':getListesPublique')->setName('aff_listes');
 
 $app->get("/liste/creer",ControleurListe::class.":formCreer")->setName("formListe");
 $app->post("/liste/creer",ControleurListe::class.":creer")->setName("creerListe");
 
 
-$app->get('/liste/{token}/modifier',ControleurListe::class.':formModifierListe')->setName('formModifierListe');
-$app->post("/liste/{token}/modifier",ControleurListe::class.':modifierListe')->setName('modifierListe');
+#$app->get('/liste/{token}/modifier',ControleurListe::class.':formModifierListe')->setName('formModifierListe');
+#$app->post("/liste/{token}/modifier",ControleurListe::class.':modifierListe')->setName('modifierListe');
+$app->get('/liste/modifier',ControleurListe::class.':formModifierListe')->setName('formModifierListe');
+$app->post("/liste/modifier",ControleurListe::class.':modifierListe')->setName('modifierListe');
 
 
 $app->get('/liste/{uuid}', ControleurListe::class.':getListe' )->setName('aff_liste' );
@@ -42,7 +44,7 @@ $app->post('/liste',ControleurItem::class.':tokenListe')->setName("TokenListe");
 
 $app->get('/liste/{uuid}/item/{id_item}' , ControleurItem::class.':afficherItem'  )->setName('aff_item'  );
 
-$app->delete('/liste/{uuid}/{id_item}/supprimer',ControleurItem::class.':supprimerItem')->setName('supprimerItem');
+$app->post('/liste/{uuid}/{id_item}/supprimer',ControleurItem::class.':supprimerItem')->setName('supprimerItem');
 
 $app->get('/inscription',ControleurConnexion::class.':pageInscription')->setName('pageInscription');
 $app->get('/connexion',ControleurConnexion::class.':pageConnexion')->setName('pageConnexion');

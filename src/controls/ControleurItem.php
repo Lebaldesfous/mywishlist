@@ -21,9 +21,15 @@ class ControleurItem {
     }
 
     public function afficherItem(Request $rq, Response $rs, $args){
+        $liste = Liste::all()->where("token","=",$args["uuid"])->first();
+        if (is_null($liste)) {
+            $url= $this->app->router->pathFor('racine');
+            return $rs->withRedirect($url);
+        }
         $id=$args["id_item"];
-        $item = Item::find($id);
-        $vue = new VueItem($item,$this->app);
+        $item = Item::all()->where("id", "=", $id, "liste_id", "=", $liste->no)->first();
+        $array=array($liste, $item);
+        $vue = new VueItem($array,$this->app);
         $rs->getBody()->write($vue->render(0)) ;
 
         return $rs;
@@ -119,7 +125,8 @@ class ControleurItem {
                 $item->img = $url_image;
                 $item->iduser=$_SESSION['user']['id'];
                 $item->save();
-                $url_token = $this->app->router->pathFor('aff_token');
+                $item = Item::all()->where("nom","=",$nom,"liste_id","=",$liste->no,"descr","=",$description)->first();
+                $url_token = $this->app->router->pathFor('aff_item',["uuid"=>$token,"id_item"=>$item->id]);
                 return $rs->withRedirect($url_token);
             }
         }
@@ -171,8 +178,8 @@ class ControleurItem {
             $url_connexion= $this->app->router->pathFor('connexion');
             return $rs->withRedirect($url_connexion);
         }else {
-            $post = $rq->getParsedBody();
-            $idliste = filter_var($args['id_liste'], FILTER_SANITIZE_STRING);
+
+            $idliste = filter_var($args['uuid'], FILTER_SANITIZE_STRING);
             $iditem = filter_var($args['id_item'], FILTER_SANITIZE_STRING);
             $item = Item::all()->where("id", "=", $iditem, "liste_id", "=", $idliste)->first();
             if (is_null($item)) {
@@ -181,7 +188,7 @@ class ControleurItem {
                 return $rs->withRedirect($url_accueil);
             } else {
                 $item->delete();
-                $url_accueil = $this->app->router->pathFor('racine');
+                $url_accueil = $this->app->router->pathFor('aff_liste',["uuid"=>$idliste]);
                 return $rs->withRedirect($url_accueil);
             }
         }

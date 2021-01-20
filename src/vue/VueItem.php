@@ -47,19 +47,26 @@ FIN;
     }
 
     private function afficherItem() {
-        $tab=$this->tab;
-        $imgurl = substr($tab['img'], 0, 4) == "http" ? $tab['img'] : "{$this->root}web/img/{$tab["img"]}";
+        $item=$this->tab[1];
+        $url_res_item = $this->container->router->pathFor('formModifierItem', ["uuid"=>$this->tab[0]["token"],"id_item"=>$item["id"]]);
+        $url_sup_item = $this->container->router->pathFor('supprimerItem', ["uuid"=>$this->tab[0]["token"],"id_item"=>$item["id"]]);
+        $imgurl = substr($item['img'], 0, 4) == "http" ? $item['img'] : "{$this->root}web/img/{$item["img"]}";
         $divTitle = "
         <div class='item-title-desc'>
         <div>
-        <h3 class='subtitle mb-2'>Titre : {$tab["nom"]}</h3>
-        <p class='mb-3'>Description : {$tab["descr"]}</p>
+        <h3 class='subtitle mb-2'>Titre : {$item["nom"]}</h3>
+        <p class='mb-3'>Description : {$item["descr"]}</p>
         </div>
         <img src={$imgurl} />
         </div>";
         $div = "<div class='item-list'>
-        <div class='item-desc'>
-            <p>Affilié à la liste : {$tab['liste_id']}, au tarif de {$tab['tarif']}</p>
+        <div class='item-desc-aff'>
+            <p>Affilié à la liste : {$item['liste_id']}, au tarif de {$item['tarif']}</p>
+            <a class='button is-primary' href={$url_res_item}>Modifier</a>
+           <form method='POST' action='$url_sup_item'>
+	       <button class='button is-warning' type='submit'>Supprimer</button>
+           </form>	
+           
         </div>
         </div>";
         $html = "$divTitle<div class='separate-line'></div>$div";

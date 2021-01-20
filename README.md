@@ -124,6 +124,7 @@ Le site a été déployé, et il est disponible à [cette adresse][SITE].
 - Fonctionnalité 2 affinage de l'affichage item
 - Corrections de bugs
 - Ajout du css pour diverses pages
+- Fonctionnalité 20
 
 ### 5.3. Guillaume HUET
 - Fonctionnalité 6 Créer une liste
