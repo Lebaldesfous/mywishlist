@@ -168,8 +168,14 @@ class ControleurListe
 
         public function partage(Request $rq, Response $rs, $args){
             $vue = new vueListe($args, $this->container);
-            $rs->getBody()->write($vue->render(4));
+            $rs->getBody()->write($vue->render(5));
             return $rs;
         }
 
+
+        public function rechercher(Request $rq, Response $rs, $args){
+            $post =$rq->getParsedBody();
+            $url_liste=$this->container->router->pathFor('aff_liste',["uuid"=>$post['token']]);
+            return $rs->withRedirect($url_liste);
+        }
 }

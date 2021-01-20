@@ -36,7 +36,7 @@ class VueListe
     private function afficherListe() {
         $tab=$this->tab[0];
         $url_sup_item=$this->container->router->pathFor('supprimerListe', ["uuid"=>$this->tab[0]["token"]]);
-        $divTitle = "<div class='list-desc-flex'><div><h3 class='subtitle mb-2'>Titre : {$tab["titre"]}</h3><p class='mb-3'>Description : {$tab["description"]}</p><br><p>Voici le token de modification de la liste : {$tab["token"]}</p></div><form method='POST' action=''><button class='button is-warning' type='submit'>Supprimer</button></form></div>";
+        $divTitle = "<div class='list-desc-flex'><div><h3 class='subtitle mb-2'>Titre : {$tab["titre"]}</h3><p class='mb-3'>Description : {$tab["description"]}</p><br><p>Voici le token de modification de la liste : {$tab["token"]}</p></div><form method='POST' action='$url_sup_item'><button class='button is-warning' type='submit'>Supprimer</button></form></div>";
         $li = "";
         foreach($this->tab[1] as $item){
             $url_item = $this->container->router->pathFor('aff_item', ["uuid"=>$this->tab[0]["token"], "id_item"=>$item["id"]]);
@@ -106,7 +106,7 @@ FIN;
     private function rechercherListe(){
         $url_token= $this->container->router->pathFor("rechercher");
         $html=<<<FIN
-<form method="POST" action="$url_modifier_liste">
+<form method="POST" action="$url_token">
     <label>Token de la liste:<br> <input type="text" name="token"/></label><br>
 	<button type="submit">Rechercher</button>
 </form>	
@@ -132,7 +132,7 @@ FIN;
                 $content=$this->modifierListe();
                 break;
             case(4):
-                $content=$this->modifierListe();
+                $content=$this->rechercherListe();
                 break;
             case(5):
                 $content=$this->partagerListe();
