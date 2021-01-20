@@ -93,7 +93,7 @@ class ControleurListe
             $l->user_id=$_SESSION['user']['id'];
             $l->save();
             $l=Liste::all()->where("titre","=",$titre,"description","=",$description,"expiration","=",$date,"user_id","=",$_SESSION['user']['id'])->first();
-            $url_liste = $this->container->router->pathFor( 'aff_liste',["uuid"=>$l->token] ) ;
+            $url_liste = $this->container->router->pathFor( 'partageListe',["uuid"=>$l->token] ) ;
             return $rs->withRedirect($url_liste);
         }
 
