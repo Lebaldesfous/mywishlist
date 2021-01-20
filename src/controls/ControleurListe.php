@@ -160,6 +160,10 @@ class ControleurListe
             }
         }
 
-
+        public function partage(Request $rq, Response $rs, $args){
+            $vue = new vueListe($args, $this->container);
+            $rs->getBody()->write($vue->render(4));
+            return $rs;
+        }
 
 }
