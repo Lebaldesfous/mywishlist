@@ -66,6 +66,12 @@ class ControleurListe
         }
     }
 
+    public function formRechercher(Request $rq, Response $rs, $args) {
+        $vue = new VueListe([],$this->container);
+        $rs->getBody()->write($vue->render(4));
+        return $rs;
+    }
+
     public function creer(Request $rq, Response $rs, $args){
         session_start();
         if(!isset($_SESSION['user'])){
