@@ -22,8 +22,8 @@ Nous avons structuré notre dépôt, de façon à ne pas être désorganisés.
         * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> models : contient les modèles, le coeur de l'application
         * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> vue : contient toutes les différentes vues de l'application
     * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> web : répertoire contenant les fichiers statiques
-    * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> styles : répertoire contenant les styles CSS additionnels
         * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> img : Répertoire contenant les images
+    * <img src="https://cdn1.iconfinder.com/data/icons/folders-41/24/folder_directory_open-512.png" alt="dossier " width="18"/> styles : répertoire contenant les styles CSS additionnels
     - <img src="https://i.pinimg.com/originals/7f/d2/e4/7fd2e46b2da9819e667fb75caf475cf7.png" alt="fichier " width="18"/> .gitignore : fichier contenant les données (répertoires ou fichiers) qui ne doivent pas être suivis par git
     - <img src="https://i.pinimg.com/originals/7f/d2/e4/7fd2e46b2da9819e667fb75caf475cf7.png" alt="fichier " width="18"/> .htaccess : fichier de configuration d'Apache pour effectuer correctement les redirections
     - <img src="https://i.pinimg.com/originals/7f/d2/e4/7fd2e46b2da9819e667fb75caf475cf7.png" alt="fichier " width="18"/> composer.json : fichier d'installation des dépendances PHP nécessaires au projet
