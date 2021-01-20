@@ -30,7 +30,8 @@ $app->get("/liste/{uuid}/partage", ControleurListe::class.":partage")->setName('
 #$app->post("/liste/{token}/modifier",ControleurListe::class.':modifierListe')->setName('modifierListe');
 $app->get('/liste/modifier',ControleurListe::class.':formModifierListe')->setName('formModifierListe');
 $app->post("/liste/modifier",ControleurListe::class.':modifierListe')->setName('modifierListe');
-
+$app->get('/liste/rechercher',ControleurListe::class.':formRecercher')->setName('formRechercher');
+$app->post('/liste/rechercher',ControleurListe::class.':recercher')->setName('rechercher');
 
 $app->get('/liste/{uuid}', ControleurListe::class.':getListe' )->setName('aff_liste' );
 

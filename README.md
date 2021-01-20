@@ -125,6 +125,7 @@ Le site a été déployé, et il est disponible à [cette adresse][SITE].
 - Corrections de bugs
 - Ajout du css pour diverses pages
 - Fonctionnalité 20
+- Fonctionnalité 14
 
 ### 5.3. Guillaume HUET (@lebaldesfous)
 
