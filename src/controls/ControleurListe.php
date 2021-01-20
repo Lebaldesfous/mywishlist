@@ -168,7 +168,7 @@ class ControleurListe
 
         public function partage(Request $rq, Response $rs, $args){
             $vue = new vueListe($args, $this->container);
-            $rs->getBody()->write($vue->render(4));
+            $rs->getBody()->write($vue->render(5));
             return $rs;
         }
 

@@ -106,7 +106,7 @@ FIN;
     private function rechercherListe(){
         $url_token= $this->container->router->pathFor("rechercher");
         $html=<<<FIN
-<form method="POST" action="$url_modifier_liste">
+<form method="POST" action="$url_token">
     <label>Token de la liste:<br> <input type="text" name="token"/></label><br>
 	<button type="submit">Rechercher</button>
 </form>	
@@ -132,7 +132,7 @@ FIN;
                 $content=$this->modifierListe();
                 break;
             case(4):
-                $content=$this->modifierListe();
+                $content=$this->rechercherListe();
                 break;
             case(5):
                 $content=$this->partagerListe();
