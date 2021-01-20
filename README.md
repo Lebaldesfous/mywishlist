@@ -138,3 +138,4 @@ Le site a été déployé, et il est disponible à [cette adresse][SITE].
 - Fonctionnalité 3 pour la réservation d'un item
 - Fonctionnalité 11 pour l'ajout d'une image à un item
 - Fonctionnalité 12 pour la modification d'une image d'un item
+- Supprimer liste
