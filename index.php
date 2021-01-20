@@ -44,7 +44,7 @@ $app->post('/liste',ControleurItem::class.':tokenListe')->setName("TokenListe");
 
 $app->get('/liste/{uuid}/item/{id_item}' , ControleurItem::class.':afficherItem'  )->setName('aff_item'  );
 
-$app->delete('/liste/{uuid}/{id_item}/supprimer',ControleurItem::class.':supprimerItem')->setName('supprimerItem');
+$app->post('/liste/{uuid}/{id_item}/supprimer',ControleurItem::class.':supprimerItem')->setName('supprimerItem');
 
 $app->get('/inscription',ControleurConnexion::class.':pageInscription')->setName('pageInscription');
 $app->get('/connexion',ControleurConnexion::class.':pageConnexion')->setName('pageConnexion');

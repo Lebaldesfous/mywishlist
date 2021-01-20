@@ -178,8 +178,8 @@ class ControleurItem {
             $url_connexion= $this->app->router->pathFor('connexion');
             return $rs->withRedirect($url_connexion);
         }else {
-            $post = $rq->getParsedBody();
-            $idliste = filter_var($args['id_liste'], FILTER_SANITIZE_STRING);
+
+            $idliste = filter_var($args['uuid'], FILTER_SANITIZE_STRING);
             $iditem = filter_var($args['id_item'], FILTER_SANITIZE_STRING);
             $item = Item::all()->where("id", "=", $iditem, "liste_id", "=", $idliste)->first();
             if (is_null($item)) {
@@ -188,7 +188,7 @@ class ControleurItem {
                 return $rs->withRedirect($url_accueil);
             } else {
                 $item->delete();
-                $url_accueil = $this->app->router->pathFor('racine');
+                $url_accueil = $this->app->router->pathFor('aff_liste',["uuid"=>$idliste]);
                 return $rs->withRedirect($url_accueil);
             }
         }
