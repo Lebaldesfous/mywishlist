@@ -17,6 +17,11 @@
 .item-desc{
     display: flex;
     align-items: center;
+}
+
+.item-desc-aff{
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     width: 100%;
 }

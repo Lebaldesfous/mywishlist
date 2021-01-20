@@ -38,7 +38,7 @@ class VueListe
         $divTitle = "<h3 class='subtitle mb-2'>Titre : {$tab["titre"]}</h3><p class='mb-3'>Description : {$tab["description"]}</p><br><p>Voici le token de modification de la liste : {$tab["token"]}</p>";
         $li = "";
         foreach($this->tab[1] as $item){
-            $url_res_item = $this->container->router->pathFor('aff_item', ["uuid"=>$this->tab[0]["no"], "id_item"=>$item["id"]]);
+            $url_res_item = $this->container->router->pathFor('aff_item', ["uuid"=>$this->tab[0]["token"], "id_item"=>$item["id"]]);
             $state=$item['etat'] == 0 ? 'Non réservé' : 'Réservé';
             $imgurl = substr($item['img'], 0, 4) == "http" ? $item['img'] : "{$this->root}web/img/{$item["img"]}";
             $li .= "<a class='item-list' href=$url_res_item>

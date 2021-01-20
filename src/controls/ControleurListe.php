@@ -35,7 +35,7 @@ class ControleurListe
             return $rs->withRedirect($url);
         }
         $items = Item::all()->where("liste_id","=",$id);
-        $array = array($liste,$items);
+        $array = array($liste,$items,'admin'=>true);
         $vue = new VueListe($array,$this->container);
         $rs->getBody()->write($vue->render(1)) ;
         return $rs;

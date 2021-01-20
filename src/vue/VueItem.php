@@ -59,7 +59,7 @@ FIN;
         <img src={$imgurl} />
         </div>";
         $div = "<div class='item-list'>
-        <div class='item-desc'>
+        <div class='item-desc-aff'>
             <p>Affilié à la liste : {$item['liste_id']}, au tarif de {$item['tarif']}</p>
             <a class='button is-primary' href={$url_res_item}>Modifier</a>
         </div>

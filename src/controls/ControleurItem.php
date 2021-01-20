@@ -23,7 +23,7 @@ class ControleurItem {
     public function afficherItem(Request $rq, Response $rs, $args){
         $liste = Liste::all()->where("token","=",$args["uuid"])->first();
         if (is_null($liste)) {
-            $url= $this->container->router->pathFor('racine');
+            $url= $this->app->router->pathFor('racine');
             return $rs->withRedirect($url);
         }
         $id=$args["id_item"];
