@@ -80,6 +80,7 @@ class ControleurItem {
     }
 
     public function reserverItem(Request $rq, Response $rs, $args){
+        session_start();
         $post = $rq->getParsedBody();
         $token = filter_var($args['uuid'] , FILTER_SANITIZE_STRING);
         $iditem= filter_var($args['id_item'] , FILTER_SANITIZE_STRING);
