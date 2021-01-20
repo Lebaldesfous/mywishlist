@@ -79,3 +79,8 @@ a, a:hover, a:focus{
 .w-100{
     width: 100%;
 }
+
+.list-desc-flex{
+    display: flex;
+    justify-content: space-between;
+}
