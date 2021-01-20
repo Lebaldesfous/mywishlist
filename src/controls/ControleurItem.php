@@ -21,9 +21,15 @@ class ControleurItem {
     }
 
     public function afficherItem(Request $rq, Response $rs, $args){
+        $liste = Liste::all()->where("token","=",$args["uuid"])->first();
+        if (is_null($liste)) {
+            $url= $this->container->router->pathFor('racine');
+            return $rs->withRedirect($url);
+        }
         $id=$args["id_item"];
-        $item = Item::find($id);
-        $vue = new VueItem($item,$this->app);
+        $item = Item::all()->where("id", "=", $id, "liste_id", "=", $liste->no)->first();
+        $array=array($liste, $item);
+        $vue = new VueItem($array,$this->app);
         $rs->getBody()->write($vue->render(0)) ;
 
         return $rs;
