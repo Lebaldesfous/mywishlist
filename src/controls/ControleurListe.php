@@ -166,4 +166,10 @@ class ControleurListe
             return $rs;
         }
 
+
+        public function rechercher(Request $rq, Response $rs, $args){
+            $post =$rq->getParsedBody();
+            $url_liste=$this->container->router->pathFor('aff_liste',["uuid"=>$post['token']]);
+            return $rs->withRedirect($url_liste);
+        }
 }
