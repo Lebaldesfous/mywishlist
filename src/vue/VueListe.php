@@ -38,19 +38,29 @@ class VueListe
         $divTitle = "<h3 class='subtitle mb-2'>Titre : {$tab["titre"]}</h3><p class='mb-3'>Description : {$tab["description"]}</p><br><p>Voici le token de modification de la liste : {$tab["token"]}</p>";
         $li = "";
         foreach($this->tab[1] as $item){
-            $url_res_item = $this->container->router->pathFor('aff_item', ["uuid"=>$this->tab[0]["token"], "id_item"=>$item["id"]]);
+            $url_item = $this->container->router->pathFor('aff_item', ["uuid"=>$this->tab[0]["token"], "id_item"=>$item["id"]]);
+            $url_res_item = $this->container->router->pathFor('formReserverItem', ["uuid"=>$this->tab[0]["token"], "id_item"=>$item["id"]]);
             $state=$item['etat'] == 0 ? 'Non réservé' : 'Réservé';
             $imgurl = substr($item['img'], 0, 4) == "http" ? $item['img'] : "{$this->root}web/img/{$item["img"]}";
-            $li .= "<a class='item-list' href=$url_res_item>
+            $li .= "<a class='item-list' href=$url_item>
             <div class='item-desc'>
                 <img src={$imgurl} />
                 <p>{$item['nom']}, {$item['descr']}</p>
             </div>
+            <div class='div-reservation'>
                 <p>{$state}</p>
+
             </a>
-             <button class='button is-warning' type='submit'>Supprimer</button>";
+
+                <form action={$url_res_item}>
+                    <input class='button is-primary ml-3' type='submit' value='Réservation' />
+                </form>
+            </div>
+            </a>";
+
         }
-        $html = "$divTitle<div class='separate-line'></div><ul>$li</ul>";
+        $html = "$divTitle<div class='separate-line'></div><ul>$li</ul>
+ <button class='button is-warning' type='submit'>Supprimer</button>";
         $this->titre = "Afficher liste";
         return $html;
     }
