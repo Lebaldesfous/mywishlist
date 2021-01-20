@@ -65,8 +65,7 @@ END;
         //$url_item_2     = $container->router->pathFor( 'aff_item' , ['id' => 2] ) ;
         $url_form_liste = $container->router->pathFor( 'formListe'              ) ;
         $url_form_item = $container->router->pathFor( 'formToken') ;
-        $url_form_login = $container->router->pathFor('formLogin');
-        $url_test_login= $container->router->pathFor('testform');
+        $url_form_modif_list = $container->router->pathFor('formModifierListe');
         $url_listes_rechercher = "#"; // $container->router->pathFor('formToken');
 
         $url_logo = 'https://www.carrefour.fr/media/540x540/Photosite/BAZAR/PAPETERIE/3037929416015_PHOTOSITE_20191115_050759_0.jpg?placeholder=1';
@@ -109,6 +108,9 @@ END;
                                 <div class="navbar-dropdown">
                                     <a class="navbar-item" href="$url_listes">
                                         Listes publiques
+                                    </a>
+                                    <a class="navbar-item" href="$url_form_modif_list">
+                                        Modifier une liste
                                     </a>
                                     <a class="navbar-item" href="$url_listes_rechercher">
                                         Rechercher
