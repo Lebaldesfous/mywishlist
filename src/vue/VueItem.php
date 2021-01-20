@@ -91,12 +91,11 @@ FIN;
     }
 
     public function reserverItem(){
-        $url_res_item = $this->container->router->pathFor('reserverItem', ["uuid"=>$this->tab["uuid"]]);
+        $url_res_item = $this->container->router->pathFor('reserverItem', ["uuid"=>$this->tab["uuid"], "id_item"=>$this->tab["id_item"]]);
         $html = <<<FIN
-                <form method = "POST" action = "$url_res_item">
+                <form class='reserve-item' method="POST" action="$url_res_item">
                 <label> Nom participant: <br> <input type = "text" name = "nom"/></label>
-                <label>Message: <br><textarea type="text" name="message" rows="5" cols="33"></textarea></label><br>
-                <button type="submit" class="button is-link">Enregistrer l'item</button>
+                <button type="submit" class="button is-link ml-3">Enregistrer l'item</button>
 </form>
 FIN;
 
