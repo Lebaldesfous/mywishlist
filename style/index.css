@@ -26,6 +26,15 @@
     width: 100%;
 }
 
+.div-reservation{
+    display: flex;
+    align-items: center;
+}
+
+.div-reservation>*{
+    margin-top: 0!important;
+}
+
 .separate-line{
     height: 1px;
     width: 100%;
