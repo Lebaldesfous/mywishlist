@@ -92,8 +92,8 @@ class ControleurItem {
             $item->iduser=$id_user;
             $item->message=$message;
             $item->save();
-            $url_listes = $this->app->router->pathFor( 'racine' ) ;
-            return $rs->withRedirect($url_listes);
+            $url_liste = $this->app->router->pathFor( 'aff_liste',["uuid"=>$token] ) ;
+            return $rs->withRedirect($url_liste);
         }else{
             $rs->getBody()->write(VueMenu::get($this->app,"L'item a déjà été réservé","Erreur Réservation"));
             return $rs;
