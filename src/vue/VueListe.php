@@ -49,13 +49,18 @@ class VueListe
             </div>
             <div class='div-reservation'>
                 <p>{$state}</p>
+
+            </a>
+
                 <form action={$url_res_item}>
                     <input class='button is-primary ml-3' type='submit' value='Réservation' />
                 </form>
             </div>
             </a>";
+
         }
-        $html = "$divTitle<div class='separate-line'></div><ul>$li</ul>";
+        $html = "$divTitle<div class='separate-line'></div><ul>$li</ul>
+ <button class='button is-warning' type='submit'>Supprimer</button>";
         $this->titre = "Afficher liste";
         return $html;
     }

@@ -84,10 +84,11 @@ class ControleurItem {
         $idliste = filter_var($args['id_liste'] , FILTER_SANITIZE_STRING);
         $iditem= filter_var($args['id_item'] , FILTER_SANITIZE_STRING);
         $item = Item::all()->where("id","=",$iditem,"liste_id","=",$idliste)->first();
-
+        $message = filter_var($post["message"],FILTER_SANITIZE_STRING);
         $id_user = filter_var($post['iduser'], FILTER_SANITIZE_NUMBER_INT);
         if($item->iduser == NULL){
             $item->iduser=$id_user;
+            $item->message=$message;
             $item->save();
             $url_listes = $this->app->router->pathFor( 'racine' ) ;
             return $rs->withRedirect($url_listes);
@@ -123,7 +124,6 @@ class ControleurItem {
                 $item->url = $url_page;
                 $item->tarif = $prix;
                 $item->img = $url_image;
-                $item->iduser=$_SESSION['user']['id'];
                 $item->save();
                 $item = Item::all()->where("nom","=",$nom,"liste_id","=",$liste->no,"descr","=",$description)->first();
                 $url_token = $this->app->router->pathFor('aff_item',["uuid"=>$token,"id_item"=>$item->id]);

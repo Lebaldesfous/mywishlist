@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `item` (
   `tarif` decimal(5,2) DEFAULT NULL,
   `etat` tinyint(1) DEFAULT '0',
   `iduser` int(11) NOT NULL,
+  `message` varchar(100),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 
