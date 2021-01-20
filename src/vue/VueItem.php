@@ -34,6 +34,18 @@ FIN;
         return $html;
     }
 
+    private function formItem(){
+        $url_new_item= $this->container->router->pathFor('TokenListe');
+        $html =<<<FIN
+<form method="POST" action="$url_new_item">
+	<label>Token de modification <br><input type="text"  name="token"/></label><br>	
+	<button type="submit">Enregistrer le token</button>
+</form>	
+FIN;
+        $this->titre="Modifier Item";
+        return $html;
+    }
+
     private function afficherItem() {
         $tab=$this->tab;
         $imgurl = substr($tab['img'], 0, 4) == "http" ? $tab['img'] : "{$this->root}web/img/{$tab["img"]}";
@@ -62,7 +74,6 @@ FIN;
                     <label>Nom Item:<br> <input type="text" name="nom"/></label><br>
                     <label>Description: <br><input type="text" name="description"/></label><br>
                     <label>Prix <br><input type="text" name="prix"/></label><br>	
-                    <label>Id Liste: <br><input type="text" name="id_liste"/></label><br>
                     <label>Url page internet:<br><input type="text" name="url_page"/></label><br>
                     <label>Url image:<br><input type="text" name="img"/></label><br>
                     <button type="submit" class="button is-link">Enregistrer l'item</button>
@@ -93,7 +104,7 @@ FIN;
                 $content = $this->afficherItem();
                 break;
             case 1:
-                $content = $this->creerItem();
+                $content = $this->formItem();
                 break;
             case 2:
                 $content=$this->modifierItem();
@@ -103,6 +114,9 @@ FIN;
                 break;
             case 4:
                 $content=$this->reserverItem();
+                break;
+            case 5:
+                $content=$this->creerItem();
                 break;
             default:
                 $content ='';

@@ -47,6 +47,7 @@ class ControleurConnexion {
             $u->login=$login;
             $u->pass=password_hash($password, PASSWORD_DEFAULT);
             $u->save();
+            $u=User::all()->where("login","=",$login)->first();
             $_SESSION['user'] = $u;
             return $res->withRedirect($this->app->router->pathFor("racine"));
         }

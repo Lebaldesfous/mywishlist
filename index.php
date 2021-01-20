@@ -36,6 +36,9 @@ $app->post("/liste/{uuid}/creer",ControleurItem::class.":creerItem")->setName("c
 $app->get("/liste/{uuid}/{id_item}/modifier",ControleurItem::class.":formModifierItem")->setName("formModifierItem");
 $app->post("/liste/{uuid}/{id_item}/modifier",ControleurItem::class.":modifierItem")->setName("modifierItem");
 
+$app->get('/liste',ControleurItem::class.':formTokenListe')->setName("formToken");
+$app->post('/liste',ControleurItem::class.':tokenListe')->setName("TokenListe");
+
 $app->get('/liste/{uuid}/item/{id_item}' , ControleurItem::class.':afficherItem'  )->setName('aff_item'  );
 
 $app->delete('/liste/{uuid}/{id_item}/supprimer',ControleurItem::class.':supprimerItem')->setName('supprimerItem');
